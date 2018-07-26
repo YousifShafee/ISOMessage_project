@@ -13,25 +13,25 @@ Iso_message_parser is iso message processor that parses messages that follow ISO
 *   Server
 *   Client
 *   Message
-
+* 	Parser
 
 
 
 ```
 
-### Download & Installation
 
-```shell 
-$ npm i boilerplate-readme-template 
-```
 
 ### Contributing
 
 Keep it simple. Keep it minimal. Don't put every single feature just because you can.
 
-### Authors or Acknowledgments
+### Authors 
 
-*   Vladimir Carrer
+*   Omar Saad
+*	Islam Tareq
+*	Mariam Ismail
+*	Mostafa Mohamed 
+*	Yousif Shafee 
 
 ### License
 
