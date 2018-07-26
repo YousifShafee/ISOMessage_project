@@ -1,35 +1,21 @@
 ![](logo.png)
 
-Project Title - Readme.md HTML Template
+ISOMessageParser
 =======================================
 
-Intro - Boilerplate for Readme.md on Github
+Intro - ISOMessageParser for parsing ISO8583 messages 
 
 * * *
 
-Describe you project -> I hate to always "reinvent" README.md on GitHub that is why I decided to make this Starter README.md template. Also I prefer HTML syntax because I use HTML every day and it has some extra features like center the elements.
-
+Iso_message_parser is iso message processor that parses messages that follow ISO 8583/1993-12-15, core banking system and defines the data elements contained in ETHIX-Connect/ISO services. 
 ### List of features
 
-*   Beautiful Starter Template for README.md
-*   Key feature num. 2
-*   Key feature num. 3
-*   Key feature num. 4
+*   Server
+*   Client
+*   Message
 
-### Demo -> Show me what you got
 
-[Link to your awesome Demo](#) 
 
-[Another Link to your awesome Demo](#)
-
-### Code Demo
-
-```html We will use markdown for the Syntax Highlighting
-
-<li>Beautiful Starter Template for README.md</li>
-<li>Key feature num. 2</li>
-<li>Key feature num. 3</li>
-<li>Key feature num. 4</li>
 
 ```
 
