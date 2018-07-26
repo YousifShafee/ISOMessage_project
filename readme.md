@@ -27,7 +27,7 @@ Keep it simple. Keep it minimal. Don't put every single feature just because you
 
 ### Authors 
 
-*   	Omar Saad
+*   Omar Saad
 *	Islam Tareq
 *	Mariam Ismail
 *	Mostafa Mohamed 
