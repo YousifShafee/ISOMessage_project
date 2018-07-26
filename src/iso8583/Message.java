@@ -11,4 +11,24 @@ package iso8583;
  */
 public class Message {
     
+    private String mMessage;
+    public Message (String mMsg )
+    {
+      mMessage=mMsg;
+    }
+    
+    public static String getMTI ()
+    {String MTI = null;
+     return MTI;
+    }
+    public  static  String getBitMap(){
+    String bitMap=null;
+    return bitMap;
+    
+    } 
+    public  static String getRestOfMsg()
+    {String restOfMsg=null;
+     return restOfMsg;
+    }
+    
 }

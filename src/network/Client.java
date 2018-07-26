@@ -12,17 +12,17 @@ public class Client {
 
     public static void main(String[] args) throws Exception {
 
-        Socket s = new Socket("localhost", 9999);
-        DataOutputStream dout = new DataOutputStream(s.getOutputStream());
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        Socket mSocket = new Socket("localhost", 9999);
+        DataOutputStream mDataOutputStream = new DataOutputStream(mSocket.getOutputStream());
+        BufferedReader mBufferReader = new BufferedReader(new InputStreamReader(System.in));
         while (true) {
-            String so = br.readLine();
-            dout.writeUTF(so);
+            String so = mBufferReader.readLine();
+            mDataOutputStream.writeUTF(so);
             if (so.equalsIgnoreCase("exit")) {
                 break;
             }
         }
-        s.close();
+        mSocket.close();
     }
 
 }

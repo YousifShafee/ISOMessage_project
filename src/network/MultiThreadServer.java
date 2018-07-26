@@ -37,19 +37,18 @@ public class MultiThreadServer implements Runnable {
 
     public void run() {
         try {
-            DataInputStream dout = new DataInputStream(csocket.getInputStream());
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            DataOutputStream dout1 = new DataOutputStream(csocket.getOutputStream());
+            DataInputStream mDataInputStream = new DataInputStream(csocket.getInputStream());
+            BufferedReader mBufferReader = new BufferedReader(new InputStreamReader(System.in));
+            DataOutputStream mDataOutputStream = new DataOutputStream(csocket.getOutputStream());
 
             while (true) {
-
-                String yoo = dout.readUTF();
-
-                System.out.println("client :" + yoo);
-
-                String so = br.readLine();
-                dout1.writeUTF(so);
-                if (yoo.equalsIgnoreCase("exit")) {
+//____________________Get message______________________
+                String Message = mDataInputStream.readUTF();
+                System.out.println("client :" + Message);
+//___________________Response_________________________________
+                String so = mBufferReader.readLine();
+                mDataOutputStream.writeUTF(so);
+                if (Message.equalsIgnoreCase("exit")) {
                     break;
                 }
             }
