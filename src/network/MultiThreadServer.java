@@ -5,6 +5,7 @@
  */
 package network;
 
+import iso8583.Message;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -43,12 +44,22 @@ public class MultiThreadServer implements Runnable {
 
             while (true) {
 //____________________Get message______________________
-                String Message = mDataInputStream.readUTF();
-                System.out.println("client :" + Message);
+             String Msg="";
+             Message m=null;
+            // try{
+                Msg = mDataInputStream.readUTF();
+                m=new Message(Msg);
+                System.out.println("client :" + Msg); 
+                System.out.println(m); 
+            // }catch(Exception e){
+              //   String out = "Wrong Message";
+               // mDataOutputStream.writeUTF(out);
+             //}
+                               
 //___________________Response_________________________________
-                String so = mBufferReader.readLine();
-                mDataOutputStream.writeUTF(so);
-                if (Message.equalsIgnoreCase("exit")) {
+                //String so = mBufferReader.readLine();
+                //mDataOutputStream.writeUTF(so);
+                if (Msg.equalsIgnoreCase("exit")) {
                     break;
                 }
             }
