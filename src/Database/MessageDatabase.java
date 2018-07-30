@@ -1,6 +1,5 @@
 package Database;
 
-import com.sun.xml.internal.ws.api.ha.StickyFeature;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
