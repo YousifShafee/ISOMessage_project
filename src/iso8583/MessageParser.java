@@ -27,6 +27,7 @@ public class MessageParser {
     }
     return bin;
 }
+    
     //this method get all the 1's indexs of bitmap in binary . 
     //Omar Saad 29/7/2018    
     public static ArrayList<Integer> getExistingElementNo(String bitMap)
