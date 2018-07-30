@@ -2,7 +2,7 @@
 package iso8583;
 
 //This object was created to get the field number and its component in the same object
-//made by Omar Saad
+//Omar Saad
 public class FieldInfo {
     private int FieldNo; //Field Number 
     private String DE; // Data element which belongs to the corresponding field Number 

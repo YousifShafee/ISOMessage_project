@@ -58,7 +58,7 @@ public class MultiThreadServer implements Runnable {
                                
 //___________________Response_________________________________
                 //String so = mBufferReader.readLine();
-                //mDataOutputStream.writeUTF(so);
+                mDataOutputStream.writeUTF(m.response().getMsg());
                 if (Msg.equalsIgnoreCase("exit")) {
                     break;
                 }

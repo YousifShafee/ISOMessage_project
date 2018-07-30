@@ -3,7 +3,7 @@
 
 package iso8583;
 
-//this class made by Omar Saad (29/7/2018)
+//Omar Saad (29/7/2018)
 
 import java.util.ArrayList;
 
@@ -80,6 +80,10 @@ public class Message  extends MessageParser {
     
     
     //GETTERS
+    public String getMsg(){
+        return Msg;
+    }
+    
     public String getMsgLength(){
         return HexToAsci(MsgLength);
     }
@@ -113,7 +117,7 @@ public class Message  extends MessageParser {
        // x=x+'\n'+"Data Elements:(hex) "+DataElements ;
         ArrayList<FieldInfo> res= parsingMessage(DataElements,BitMap);
         for(int i=0;i<res.size();i++){
-            x=x+'\n'+"Field Number "+res.get(i).getFieldNo()+ ">>>" +res.get(i).getDE();
+            x=x+'\n'+"Field Number "+res.get(i).getFieldNo()+ ">>>" +res.get(i).getDE()+">>>"+res.get(i).getInfo();
         }
             
         return x;
@@ -129,6 +133,32 @@ public class Message  extends MessageParser {
         output.append((char)Integer.parseInt(str,16));
         }
      return output+"";
+    }
+    
+    
+    
+    public Message response(){
+        String AsciMTI = HexToAsci(MTI);
+       // int mti = Integer.parseInt(AsciMTI);
+        String ResponseMTI = "";
+      //try{
+        switch (AsciMTI){
+            case "1804": ResponseMTI="31383134";break;//1814
+            case "1200": ResponseMTI="31323130";break;//1210
+            case "1420":;
+            case "1421": ResponseMTI="31343330";break;//1430
+            case "1220":;
+            case "1221": ResponseMTI="31323330";break;//1230
+            case "1604": ResponseMTI="31363134";break;//1614
+            default : return new Message("ERROR");
+             
+        }
+      //} catch(Exception e){
+        //  return new Message("Wrong MTI");
+      
+        
+        Message response = new Message(MsgLength+ISO+PowerCardHeader+ResponseMTI+BitMap+DataElements);
+        return response;    
     }
     
 }
