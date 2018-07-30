@@ -1,6 +1,8 @@
 
 package iso8583;
 
+import Database.MessageDatabase;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -273,7 +275,7 @@ public class MessageParser {
     By:Mostafa Mohamed Abdel Rahaman
     7/29/2018
   */
-    public static ArrayList<FieldInfo> parsingMessage(String restOfMsg,String BitMap) {
+    public static ArrayList<FieldInfo> parsingMessage(String restOfMsg,String BitMap) throws SQLException, ClassNotFoundException {
         
         ArrayList<FieldInfo> dataElements = new ArrayList<>();
         int dataElementNo, lengthDigits;
@@ -309,6 +311,8 @@ public class MessageParser {
             
         }
         }
+        MessageDatabase DB = new MessageDatabase();
+        DB.insertInDb(dataElements);
         return dataElements;
     }
 

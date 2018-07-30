@@ -5,7 +5,10 @@ package iso8583;
 
 //Omar Saad (29/7/2018)
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Message  extends MessageParser {
     
@@ -115,7 +118,14 @@ public class Message  extends MessageParser {
         x=x+'\n'+"MTI:(hex) "+MTI+" >>> (Asci)"+HexToAsci(MTI) ;
         x=x+'\n'+"BitMap:(hex) "+BitMap ;
        // x=x+'\n'+"Data Elements:(hex) "+DataElements ;
-        ArrayList<FieldInfo> res= parsingMessage(DataElements,BitMap);
+        ArrayList<FieldInfo> res=null;
+        try {
+            res = parsingMessage(DataElements,BitMap);
+        } catch (SQLException ex) {
+            Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
+        }
         for(int i=0;i<res.size();i++){
             x=x+'\n'+"Field Number "+res.get(i).getFieldNo()+ ">>>" +res.get(i).getDE()+">>>"+res.get(i).getInfo();
         }
