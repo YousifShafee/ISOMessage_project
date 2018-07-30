@@ -1,18 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package iso8583;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- *
- * @author Mr.Yousif
- */
+
 public class MessageParser {
+
+    //Change from hex to Binary
+    // Omar Saad // 29/7/2018
     private static String hexToBin(String hex){
     String bin = "";
     String binFragment = "";
@@ -31,6 +27,8 @@ public class MessageParser {
     }
     return bin;
 }
+    //this method get all the 1's indexs of bitmap in binary . 
+    //Omar Saad 29/7/2018    
     public static ArrayList<Integer> getExistingElementNo(String bitMap)
     { 
         ArrayList<Integer> res = new ArrayList();
@@ -50,14 +48,27 @@ public class MessageParser {
     
             
      // function get type and number of field 
-     // mariam esmail
-      public static String getElementLength(int elementno){
+     // mariam esmail //29/7/2018
+      public static FieldType getElementLength(int elementno){
         
           
            //System.out.println ("Field number you want?");
-         HashMap<String,String> elementNo = new HashMap<String,String>();
+        // HashMap<String,String> elementNo = new HashMap<String,String>();
          //Scanner sc = new Scanner ( System.in);
-          elementNo.put("2","v,2,Primary account number");  elementNo.put("3","F,6,Processing code"); 
+         //"v,2,Primary account number"
+         
+         FieldType[] DataElements = new FieldType[129]; 
+         DataElements[0]=null;
+         DataElements[1]=null;
+         DataElements[2]=new FieldType(true,2,"Primary account number");
+        
+         
+         
+         return  DataElements[elementno];
+         
+         
+         
+         /* elementNo.put("2","v,2,Primary account number");  elementNo.put("3","F,6,Processing code"); 
          elementNo.put("4","F,12,Amount, transaction"); elementNo.put("5","F,12,Amount, settlement");
          elementNo.put("6","F,12,Amount, cardholder billing"); elementNo.put("7","F,10,Transmission date & time");
          elementNo.put("8","F,8,Amount, cardholder billing fee");  elementNo.put("9","F,8,Conversion rate, settlement");
@@ -119,19 +130,11 @@ public class MessageParser {
        elementNo.put("122","v,3,Reserved for private use");elementNo.put("123","v,3,Reserved for private use");
        elementNo.put("124","v,3,Reserved for private use");elementNo.put("125","v,3,Reserved for private use");
        elementNo.put("126","v,3,Reserved for private use");elementNo.put("127","v,3,Reserved for private use");
-       elementNo.put("128","F,8,Message authentication code,");
+       elementNo.put("128","F,8,Message authentication code,");*/
        
          
          //String elemntno=sc.next();
-         String x = elementno+"";
-         String FieldNo ="";
-         String number="";
-         for ( int i = 0; i <x.length(); i++){
-             number = number+x.charAt(i);
-             FieldNo=elementNo.get(number);
-         }
         
-        return FieldNo;
    
     
 }
@@ -148,21 +151,21 @@ public class MessageParser {
         
         ArrayList<FieldInfo> dataElements = new ArrayList<>();
         int dataElementNo, lengthDigits;
-        String lengthIndecator, dataElement = null;
-        String[] indicatorPart;
-
+        String  dataElement = null;
+       
+        FieldType lengthIndecator ;
         for (int i = 0; i < getExistingElementNo(BitMap).size(); ++i) {
             dataElementNo = getExistingElementNo(BitMap).get(i);
             lengthIndecator = getElementLength(dataElementNo);
-            indicatorPart = lengthIndecator.split(",");
-            if (indicatorPart[0].equals("F")) {
-                dataElement = restOfMsg.substring(0, Integer.parseInt(indicatorPart[1]) * 2);
-                restOfMsg = restOfMsg.substring(Integer.parseInt(indicatorPart[1]) * 2);
-                dataElements.add(new FieldInfo(dataElementNo, dataElement,indicatorPart[2]));
+           
+            if (!lengthIndecator.getIsVar()) {
+                dataElement = restOfMsg.substring(0, lengthIndecator.getLength() * 2);
+                restOfMsg = restOfMsg.substring(lengthIndecator.getLength() * 2);
+                dataElements.add(new FieldInfo(dataElementNo, dataElement,lengthIndecator.getDes()));
 
-            } else if (indicatorPart[0].equals("v")) {
+            } else if (lengthIndecator.getIsVar()) {
 ///////////////////////////////////////
-                String hex = restOfMsg.substring(0, Integer.parseInt(indicatorPart[1]) * 2);
+                String hex = restOfMsg.substring(0, lengthIndecator.getLength() * 2);
                 StringBuilder output = new StringBuilder();
                 for (int j = 0; j < hex.length(); j += 2) {
                     String str = hex.substring(j, j + 2);
@@ -171,9 +174,9 @@ public class MessageParser {
   ///////////////////  ////    //   ///    //////
                 lengthDigits = Integer.parseInt(output.toString());
 
-               restOfMsg = restOfMsg.substring( Integer.parseInt(indicatorPart[1]) * 2);
+               restOfMsg = restOfMsg.substring( lengthIndecator.getLength() * 2);
                 dataElement = restOfMsg.substring(0, lengthDigits * 2);
-                dataElements.add(new FieldInfo(dataElementNo, dataElement,indicatorPart[2]));
+                dataElements.add(new FieldInfo(dataElementNo, dataElement,lengthIndecator.getDes()));
             }
 
         }

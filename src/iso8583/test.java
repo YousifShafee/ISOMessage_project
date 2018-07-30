@@ -17,6 +17,7 @@ public class test {
         ArrayList<Integer> s = new ArrayList();
         s= getExistingElementNo("3531");
         System.out.println(s.toString());
+        FieldType x = new FieldType();
     }
     private static String hexToBin(String hex){
     String bin = "";

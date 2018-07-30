@@ -23,7 +23,7 @@ public class Message  extends MessageParser {
       //remove spaces from String
         Msg=Msg.replaceAll(" ", "");
       //get message length in hex and put it in String MsgLength
-        int i = 0;
+        int i = 0;//counter
         while(i<8){
             MsgLength = MsgLength + Msg.charAt(i);
             i++;
