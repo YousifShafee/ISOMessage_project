@@ -275,7 +275,10 @@ public class MessageParser {
     By:Mostafa Mohamed Abdel Rahaman
     7/29/2018
   */
-    public static ArrayList<FieldInfo> parsingMessage(String restOfMsg,String BitMap) throws SQLException, ClassNotFoundException {
+      
+      //Omar Review:- this method can take only 1  parameter(Message Msg) and use the getter methods to get any variable
+      //              instead of (String restOfMsg,String BitMap,String MTI) 
+    public static ArrayList<FieldInfo> parsingMessage(String restOfMsg,String BitMap,String MTI) throws SQLException, ClassNotFoundException {
         
         ArrayList<FieldInfo> dataElements = new ArrayList<>();
         int dataElementNo, lengthDigits;
@@ -312,7 +315,7 @@ public class MessageParser {
         }
         }
         MessageDatabase DB = new MessageDatabase();
-        DB.insertInDb(dataElements);
+        DB.insertInDb(dataElements,Message.HexToAsci(MTI));
         return dataElements;
     }
 

@@ -18,7 +18,7 @@ public class MessageDatabase {
         }
      return output+"";
     }
-    public void insertInDb(ArrayList<FieldInfo> DataInfo) throws SQLException, ClassNotFoundException
+    public void insertInDb(ArrayList<FieldInfo> DataInfo,String MTI) throws SQLException, ClassNotFoundException
     { 
        // String value="VALUES (";
     Class.forName("com.mysql.jdbc.Driver");
@@ -35,7 +35,8 @@ public class MessageDatabase {
         String Value=HexToAsci(DataInfo.get(0).getDE());
         for(int i =1; i<DataInfo.size();i++){
             column += ", `Field"+DataInfo.get(i).getFieldNo()+"`";
-            Value +=", "+HexToAsci(DataInfo.get(i).getDE());
+            Value +=", "+'"'+HexToAsci(DataInfo.get(i).getDE())+'"';
+            
         }
 
 
@@ -46,7 +47,10 @@ public class MessageDatabase {
 
 
         String sql = "INSERT INTO elements( " + column+") VALUES ("+Value +")";
-    stmt.executeUpdate(sql);
+        stmt.executeUpdate(sql);
+        String sql1 = "INSERT INTO elements( " +"`MTI`" +") VALUE ("+MTI+")";
+        stmt.executeUpdate(sql1);
+        stmt.executeUpdate("INSERT INTO elements(`Status`) VALUE ("+'"'+"ACCEPTED"+'"'+")");
       //  System.out.println(sql);
   
     

@@ -120,7 +120,7 @@ public class Message  extends MessageParser {
        // x=x+'\n'+"Data Elements:(hex) "+DataElements ;
         ArrayList<FieldInfo> res=null;
         try {
-            res = parsingMessage(DataElements,BitMap);
+            res = parsingMessage(DataElements,BitMap,MTI);
         } catch (SQLException ex) {
             Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
