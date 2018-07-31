@@ -1,6 +1,7 @@
 package iso8583;
 
 //Omar Saad (29/7/2018)
+import exceptions.WrongMessageException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -16,7 +17,10 @@ public class Message extends MessageParser {
     private String BitMap = "";
     private String DataElements = "";
 
-    public Message(String Msg) {
+    public Message(String Msg) throws WrongMessageException {
+        if (Msg.equals("")){
+            throw new WrongMessageException("Message is empty");
+        }
         this.Msg = Msg;
 
         // Start Logging
