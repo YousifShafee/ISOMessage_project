@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 //By:Omar Saad, Mostafa Mohamed Abdel Rahaman , Mariam Esmail
-public class MessageDatabase_Copy {
+public class MessageDatabase {
 
     public static String HexToAsci(String hex) {
 
