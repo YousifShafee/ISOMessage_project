@@ -11,7 +11,7 @@ public class MessageParser {
 
     //Change from hex to Binary
     //Omar Saad // 29/7/2018
-    private static String hexToBin(String hex){
+    public static String hexToBin(String hex){
     String bin = "";
     String binFragment = "";
     int iHex;

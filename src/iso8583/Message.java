@@ -122,9 +122,11 @@ public class Message  extends MessageParser {
         try {
             res = parsingMessage(DataElements,BitMap,MTI);
         } catch (SQLException ex) {
+            ex.printStackTrace();
             Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
+             ex.printStackTrace();
         }
         for(int i=0;i<res.size();i++){
             x=x+'\n'+"Field Number "+res.get(i).getFieldNo()+ ">>>" +res.get(i).getDE()+">>>"+res.get(i).getInfo();

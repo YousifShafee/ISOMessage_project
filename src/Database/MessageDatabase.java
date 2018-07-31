@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+
+//By:Omar Saad, Mostafa Mohamed Abdel Rahaman , Mariam Esmail
 public class MessageDatabase {
     public static String HexToAsci(String hex){
         
@@ -46,12 +48,9 @@ public class MessageDatabase {
 
 
 
-        String sql = "INSERT INTO elements( " + column+") VALUES ("+Value +")";
+        String sql = "INSERT INTO elements(`MTI`," + column+",`Status`) VALUES ("+MTI+","+Value+","+'"'+"ACCEPTED"+'"'+")";
         stmt.executeUpdate(sql);
-        String sql1 = "INSERT INTO elements( " +"`MTI`" +") VALUE ("+MTI+")";
-        stmt.executeUpdate(sql1);
-        stmt.executeUpdate("INSERT INTO elements(`Status`) VALUE ("+'"'+"ACCEPTED"+'"'+")");
-      //  System.out.println(sql);
+       
   
     
     
