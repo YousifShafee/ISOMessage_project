@@ -6,7 +6,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 //By:Omar Saad, Mostafa Mohamed Abdel Rahaman , Mariam Esmail
@@ -45,10 +48,12 @@ public class MessageDatabase {
 
 
 
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        String CurrDate='"'+dateFormat.format(date)+'"';
 
 
-
-        String sql = "INSERT INTO elements(`MTI`," + column+",`Status`) VALUES ("+MTI+","+Value+","+'"'+"ACCEPTED"+'"'+")";
+        String sql = "INSERT INTO elements(`MTI`," + column+",`Status`,`LoggingTime`) VALUES ("+MTI+","+Value+","+'"'+"ACCEPTED"+'"'+" ,"+CurrDate+")";
         stmt.executeUpdate(sql);
        
   
