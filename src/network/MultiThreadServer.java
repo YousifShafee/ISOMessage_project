@@ -67,8 +67,11 @@ public class MultiThreadServer implements Runnable {
             Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
+<<<<<<< HEAD
         } catch (WrongMessageException ex) {
             Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
+=======
+>>>>>>> 39ac16818df943e36cadd7082913f16f405e6f09
         }
 
         try {

@@ -9,10 +9,10 @@ package exceptions;
  *
  * @author Omar
  */
-public class WrongMTIException extends WrongMessageException{
-    
-    public WrongMTIException(String e) {
-        super(e);
+public class WrongMTIException extends WrongMessageException {
+
+    public WrongMTIException(String reason, String cause) {
+        super(reason + " : " + cause);
     }
-    
+
 }

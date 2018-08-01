@@ -1,8 +1,11 @@
 package iso8583;
 
 import Database.MessageDatabase;
+<<<<<<< HEAD
 import exceptions.WrongMessageException;
 import exceptions.ZeroBitmapException;
+=======
+>>>>>>> 39ac16818df943e36cadd7082913f16f405e6f09
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,12 +35,16 @@ public class MessageParser {
 
     //this method get all the 1's indexs of bitmap in binary . 
     //Omar Saad 29/7/2018    
+<<<<<<< HEAD
     /*
      author: islam tareq
      date:   1/8/2018
      details:Exceptions added for bitmap of only zeros
      */
     public static ArrayList<Integer> getExistingElementNo(String bitMap) throws WrongMessageException {
+=======
+    public static ArrayList<Integer> getExistingElementNo(String bitMap) {
+>>>>>>> 39ac16818df943e36cadd7082913f16f405e6f09
         ArrayList<Integer> res = new ArrayList();
         int counter = 0;
         String bin = hexToBin(bitMap);
@@ -48,6 +55,7 @@ public class MessageParser {
                 counter++;
             }
         }
+<<<<<<< HEAD
         if (bin.length() == 0) {
             /*
              author: islam tareq
@@ -56,6 +64,8 @@ public class MessageParser {
              */
             throw new ZeroBitmapException("Bitmap does not refere to any of datafields", bitMap);
         }
+=======
+>>>>>>> 39ac16818df943e36cadd7082913f16f405e6f09
         return res;
     }
 
@@ -259,14 +269,22 @@ public class MessageParser {
          elementNo.put("116","v,3,Reserved for national use");elementNo.put("117","v,3,Reserved for national use");
          elementNo.put("118","v,3,Reserved for national use");elementNo.put("119","v,3,Reserved for national use");
          elementNo.put("120","v,3,Reserved for private use");elementNo.put("121","v,3,Reserved for private use");
+<<<<<<< HEAD
          elementNo.put("122","v,3,Reserved for private use");elementNo.put("123","v,3,Reserved for private use");
          elementNo.put("124","v,3,Reserved for private use");elementNo.put("125","v,3,Reserved for private use");
          elementNo.put("126","v,3,Reserved for private use");elementNo.put("127","v,3,Reserved for private use");
          elementNo.put("128","F,8,Message authentication code,");*/
+=======
+       elementNo.put("122","v,3,Reserved for private use");elementNo.put("123","v,3,Reserved for private use");
+       elementNo.put("124","v,3,Reserved for private use");elementNo.put("125","v,3,Reserved for private use");
+       elementNo.put("126","v,3,Reserved for private use");elementNo.put("127","v,3,Reserved for private use");
+       elementNo.put("128","F,8,Message authentication code,");*/
+>>>>>>> 39ac16818df943e36cadd7082913f16f405e6f09
         //String elemntno=sc.next();
     }
 
     /* parsingMessage function
+<<<<<<< HEAD
      input: data element code in HexaDecimal
      output: arraylist of parsed data element (NumberOfField,DataElement)
      By:Mostafa Mohamed Abdel Rahaman
@@ -280,6 +298,16 @@ public class MessageParser {
      details:Throws ZerobitmapException
      */
     public static ArrayList<FieldInfo> parsingMessage(String restOfMsg, String BitMap, String MTI) throws SQLException, ClassNotFoundException, WrongMessageException {
+=======
+    input: data element code in HexaDecimal
+    output: arraylist of parsed data element (NumberOfField,DataElement)
+    By:Mostafa Mohamed Abdel Rahaman
+    7/29/2018
+     */
+    //Omar Review:- this method can take only 1  parameter(Message Msg) and use the getter methods to get any variable
+    //              instead of (String restOfMsg,String BitMap,String MTI) 
+    public static ArrayList<FieldInfo> parsingMessage(String restOfMsg, String BitMap, String MTI) throws SQLException, ClassNotFoundException {
+>>>>>>> 39ac16818df943e36cadd7082913f16f405e6f09
 
         ArrayList<FieldInfo> dataElements = new ArrayList<>();
         int dataElementNo, lengthDigits;
