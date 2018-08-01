@@ -1220,3 +1220,259 @@ Wed Aug  1 12:02:00 2018 MSec:  23614 ---->  Fld( 49)F[  3]     : Currency code,
 Wed Aug  1 12:02:00 2018 MSec:  23614 ---->  Fld( 51)F[  3]     : Currency code, cardholder billing = 840
 Wed Aug  1 12:02:00 2018 MSec:  23614 ---->  Fld(102)V[  2]     : Account identification 1 = 100000000777
 Wed Aug  1 12:02:00 2018 MSec:  23614 ----> =====================End Parsing=====================
+Wed Aug  1 12:29:12 2018 MSec:    0 ----> =====================Start Parsing=====================
+Wed Aug  1 12:29:12 2018 MSec:    0 ----> ISO Msg Length : 0317
+Wed Aug  1 12:29:12 2018 MSec:    0 ----> Protocol ID : ISO
+Wed Aug  1 12:29:12 2018 MSec:    0 ----> Power Card Header : 51000000
+Wed Aug  1 12:29:12 2018 MSec:    0 ----> MTI : 1200
+Wed Aug  1 12:29:12 2018 MSec:    0 ----> BITMAP Bytes : F6754501A8E1A0000000000004000000
+Wed Aug  1 12:29:12 2018 MSec:    0 ----> BITMAP bits  : 11110110011101010100010100000001101010001110000110100000000000000000000000000000000000000000000000000100000000000000000000000000
+Wed Aug  1 12:29:13 2018 MSec:  203 ---->  Fld(  2)V[  2]     : Primary account number = 36333934303630313030303036363035
+Wed Aug  1 12:29:13 2018 MSec:  203 ---->  Fld(  3)F[  6]     : Processing code = 303132303030
+Wed Aug  1 12:29:13 2018 MSec:  203 ---->  Fld(  4)F[ 12]     : Amount transaction = 303030303030303030313130
+Wed Aug  1 12:29:13 2018 MSec:  203 ---->  Fld(  6)F[ 12]     : Amount cardholder billing = 303030303030303030313130
+Wed Aug  1 12:29:13 2018 MSec:  203 ---->  Fld(  7)F[ 10]     : Transmission date & time = 31313236313032363539
+Wed Aug  1 12:29:13 2018 MSec:  203 ---->  Fld( 10)F[  8]     : Conversion rate cardholder billing = 3030303030303031
+Wed Aug  1 12:29:13 2018 MSec:  203 ---->  Fld( 11)F[  6]     : System trace audit number = 343030303038
+Wed Aug  1 12:29:13 2018 MSec:  203 ---->  Fld( 12)F[ 12]     : Transaction Date and Time = 303930333131313832363539
+Wed Aug  1 12:29:13 2018 MSec:  203 ---->  Fld( 14)F[  4]     : Date expiration = 32313032
+Wed Aug  1 12:29:13 2018 MSec:  203 ---->  Fld( 16)F[  4]     : Date conversion = 30333131
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 18)F[  4]     : Merchant type = 36303131
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 22)F[ 12]     : Point of service entry mode = 323131343031323131323436
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 24)F[  3]     : Function code /Network International = 323030
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 32)V[  2]     : Acquiring institution identification code = 303030303031
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 33)V[  2]     : Forwarding institution identification code = 303030303031
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 35)V[  2]     : Track 2 data = 363339343036303130303030363630353D3231303235323131303030303836373030303030
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 37)F[ 12]     : Retrieval reference number = 393939303138323138393239
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 41)F[  8]     : Card acceptor terminal identification = 3031323130313031
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 42)F[ 15]     : Card acceptor identification code = 303030303030303031312020202020
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 43)V[  2]     : Card acceptor name/location = 4B4648204D4E49205457494E20544F574552202020202057696C617961682050657273654D590000
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 48)V[  3]     : Additional data - private = 5035303030345649534150353130303430353535
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 49)F[  3]     : Currency code, transaction = 383430
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 51)F[  3]     : Currency code, cardholder billing = 383430
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld(102)V[  2]     : Account identification 1 = 313030303030303030373737
+Wed Aug  1 12:29:13 2018 MSec:  219 ----> =====================End Parsing=====================
+Wed Aug  1 12:29:13 2018 MSec:  219 ----> =====================Start Parsing=====================
+Wed Aug  1 12:29:13 2018 MSec:  219 ----> ISO Msg Length : 0317
+Wed Aug  1 12:29:13 2018 MSec:  219 ----> Protocol ID : ISO
+Wed Aug  1 12:29:13 2018 MSec:  219 ----> Power Card Header : 51000000
+Wed Aug  1 12:29:13 2018 MSec:  219 ----> MTI : 1210
+Wed Aug  1 12:29:13 2018 MSec:  219 ----> BITMAP Bytes : F6754501A8E1A0000000000004000000
+Wed Aug  1 12:29:13 2018 MSec:  219 ----> BITMAP bits  : 11110110011101010100010100000001101010001110000110100000000000000000000000000000000000000000000000000100000000000000000000000000
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld(  2)V[  2]     : Primary account number = 6394060100006605
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld(  3)F[  6]     : Processing code = 012000
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld(  4)F[ 12]     : Amount transaction = 000000000110
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld(  6)F[ 12]     : Amount cardholder billing = 000000000110
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld(  7)F[ 10]     : Transmission date & time = 1126102659
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 10)F[  8]     : Conversion rate cardholder billing = 00000001
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 11)F[  6]     : System trace audit number = 400008
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 12)F[ 12]     : Transaction Date and Time = 090311182659
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 14)F[  4]     : Date expiration = 2102
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 16)F[  4]     : Date conversion = 0311
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 18)F[  4]     : Merchant type = 6011
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 22)F[ 12]     : Point of service entry mode = 211401211246
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 24)F[  3]     : Function code /Network International = 200
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 32)V[  2]     : Acquiring institution identification code = 000001
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 33)V[  2]     : Forwarding institution identification code = 000001
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 35)V[  2]     : Track 2 data = 6394060100006605=21025211000086700000
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 37)F[ 12]     : Retrieval reference number = 999018218929
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 41)F[  8]     : Card acceptor terminal identification = 01210101
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 42)F[ 15]     : Card acceptor identification code = 0000000011     
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 43)V[  2]     : Card acceptor name/location = KFH MNI TWIN TOWER     Wilayah PerseMY  
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 48)V[  3]     : Additional data - private = P50004VISAP510040555
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 49)F[  3]     : Currency code, transaction = 840
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld( 51)F[  3]     : Currency code, cardholder billing = 840
+Wed Aug  1 12:29:13 2018 MSec:  219 ---->  Fld(102)V[  2]     : Account identification 1 = 100000000777
+Wed Aug  1 12:29:13 2018 MSec:  219 ----> =====================End Parsing=====================
+Wed Aug  1 12:29:58 2018 MSec:    0 ----> =====================Start Parsing=====================
+Wed Aug  1 12:29:58 2018 MSec:    0 ----> ISO Msg Length : 0317
+Wed Aug  1 12:29:58 2018 MSec:    0 ----> Protocol ID : ISO
+Wed Aug  1 12:29:58 2018 MSec:    0 ----> Power Card Header : 51000000
+Wed Aug  1 12:29:58 2018 MSec:    0 ----> MTI : 1200
+Wed Aug  1 12:29:58 2018 MSec:    0 ----> BITMAP Bytes : F6754501A8E1A0000000000004000000
+Wed Aug  1 12:29:58 2018 MSec:    0 ----> BITMAP bits  : 11110110011101010100010100000001101010001110000110100000000000000000000000000000000000000000000000000100000000000000000000000000
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld(  2)V[  2]     : Primary account number = 36333934303630313030303036363035
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld(  3)F[  6]     : Processing code = 303132303030
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld(  4)F[ 12]     : Amount transaction = 303030303030303030313130
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld(  6)F[ 12]     : Amount cardholder billing = 303030303030303030313130
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld(  7)F[ 10]     : Transmission date & time = 31313236313032363539
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld( 10)F[  8]     : Conversion rate cardholder billing = 3030303030303031
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld( 11)F[  6]     : System trace audit number = 343030303038
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld( 12)F[ 12]     : Transaction Date and Time = 303930333131313832363539
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld( 14)F[  4]     : Date expiration = 32313032
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld( 16)F[  4]     : Date conversion = 30333131
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld( 18)F[  4]     : Merchant type = 36303131
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld( 22)F[ 12]     : Point of service entry mode = 323131343031323131323436
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld( 24)F[  3]     : Function code /Network International = 323030
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld( 32)V[  2]     : Acquiring institution identification code = 303030303031
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld( 33)V[  2]     : Forwarding institution identification code = 303030303031
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld( 35)V[  2]     : Track 2 data = 363339343036303130303030363630353D3231303235323131303030303836373030303030
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld( 37)F[ 12]     : Retrieval reference number = 393939303138323138393239
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld( 41)F[  8]     : Card acceptor terminal identification = 3031323130313031
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld( 42)F[ 15]     : Card acceptor identification code = 303030303030303031312020202020
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld( 43)V[  2]     : Card acceptor name/location = 4B4648204D4E49205457494E20544F574552202020202057696C617961682050657273654D590000
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld( 48)V[  3]     : Additional data - private = 5035303030345649534150353130303430353535
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld( 49)F[  3]     : Currency code, transaction = 383430
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld( 51)F[  3]     : Currency code, cardholder billing = 383430
+Wed Aug  1 12:29:58 2018 MSec:  203 ---->  Fld(102)V[  2]     : Account identification 1 = 313030303030303030373737
+Wed Aug  1 12:29:58 2018 MSec:  203 ----> =====================End Parsing=====================
+Wed Aug  1 12:29:58 2018 MSec:  203 ----> =====================Start Parsing=====================
+Wed Aug  1 12:29:58 2018 MSec:  203 ----> ISO Msg Length : 0317
+Wed Aug  1 12:29:58 2018 MSec:  203 ----> Protocol ID : ISO
+Wed Aug  1 12:29:58 2018 MSec:  203 ----> Power Card Header : 51000000
+Wed Aug  1 12:29:58 2018 MSec:  203 ----> MTI : 1210
+Wed Aug  1 12:29:58 2018 MSec:  203 ----> BITMAP Bytes : F6754501A8E1A0000000000004000000
+Wed Aug  1 12:29:58 2018 MSec:  218 ----> BITMAP bits  : 11110110011101010100010100000001101010001110000110100000000000000000000000000000000000000000000000000100000000000000000000000000
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld(  2)V[  2]     : Primary account number = 6394060100006605
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld(  3)F[  6]     : Processing code = 012000
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld(  4)F[ 12]     : Amount transaction = 000000000110
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld(  6)F[ 12]     : Amount cardholder billing = 000000000110
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld(  7)F[ 10]     : Transmission date & time = 1126102659
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld( 10)F[  8]     : Conversion rate cardholder billing = 00000001
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld( 11)F[  6]     : System trace audit number = 400008
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld( 12)F[ 12]     : Transaction Date and Time = 090311182659
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld( 14)F[  4]     : Date expiration = 2102
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld( 16)F[  4]     : Date conversion = 0311
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld( 18)F[  4]     : Merchant type = 6011
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld( 22)F[ 12]     : Point of service entry mode = 211401211246
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld( 24)F[  3]     : Function code /Network International = 200
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld( 32)V[  2]     : Acquiring institution identification code = 000001
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld( 33)V[  2]     : Forwarding institution identification code = 000001
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld( 35)V[  2]     : Track 2 data = 6394060100006605=21025211000086700000
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld( 37)F[ 12]     : Retrieval reference number = 999018218929
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld( 41)F[  8]     : Card acceptor terminal identification = 01210101
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld( 42)F[ 15]     : Card acceptor identification code = 0000000011     
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld( 43)V[  2]     : Card acceptor name/location = KFH MNI TWIN TOWER     Wilayah PerseMY  
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld( 48)V[  3]     : Additional data - private = P50004VISAP510040555
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld( 49)F[  3]     : Currency code, transaction = 840
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld( 51)F[  3]     : Currency code, cardholder billing = 840
+Wed Aug  1 12:29:58 2018 MSec:  218 ---->  Fld(102)V[  2]     : Account identification 1 = 100000000777
+Wed Aug  1 12:29:58 2018 MSec:  218 ----> =====================End Parsing=====================
+Wed Aug  1 12:31:28 2018 MSec:  90643 ----> =====================Start Parsing=====================
+Wed Aug  1 12:31:28 2018 MSec:  90643 ----> ISO Msg Length : 0317
+Wed Aug  1 12:31:28 2018 MSec:  90643 ----> Protocol ID : ISO
+Wed Aug  1 12:31:28 2018 MSec:  90643 ----> Power Card Header : 51000000
+Wed Aug  1 12:31:28 2018 MSec:  90643 ----> MTI : 1200
+Wed Aug  1 12:31:28 2018 MSec:  90643 ----> BITMAP Bytes : F6754501A8E1A0000000000004000000
+Wed Aug  1 12:31:28 2018 MSec:  90643 ----> BITMAP bits  : 11110110011101010100010100000001101010001110000110100000000000000000000000000000000000000000000000000100000000000000000000000000
+Wed Aug  1 12:31:28 2018 MSec:  90685 ---->  Fld(  2)V[  2]     : Primary account number = 36333934303630313030303036363035
+Wed Aug  1 12:31:28 2018 MSec:  90685 ---->  Fld(  3)F[  6]     : Processing code = 303132303030
+Wed Aug  1 12:31:28 2018 MSec:  90686 ---->  Fld(  4)F[ 12]     : Amount transaction = 303030303030303030313130
+Wed Aug  1 12:31:28 2018 MSec:  90686 ---->  Fld(  6)F[ 12]     : Amount cardholder billing = 303030303030303030313130
+Wed Aug  1 12:31:28 2018 MSec:  90686 ---->  Fld(  7)F[ 10]     : Transmission date & time = 31313236313032363539
+Wed Aug  1 12:31:28 2018 MSec:  90686 ---->  Fld( 10)F[  8]     : Conversion rate cardholder billing = 3030303030303031
+Wed Aug  1 12:31:28 2018 MSec:  90686 ---->  Fld( 11)F[  6]     : System trace audit number = 343030303038
+Wed Aug  1 12:31:28 2018 MSec:  90686 ---->  Fld( 12)F[ 12]     : Transaction Date and Time = 303930333131313832363539
+Wed Aug  1 12:31:28 2018 MSec:  90686 ---->  Fld( 14)F[  4]     : Date expiration = 32313032
+Wed Aug  1 12:31:28 2018 MSec:  90686 ---->  Fld( 16)F[  4]     : Date conversion = 30333131
+Wed Aug  1 12:31:28 2018 MSec:  90687 ---->  Fld( 18)F[  4]     : Merchant type = 36303131
+Wed Aug  1 12:31:28 2018 MSec:  90687 ---->  Fld( 22)F[ 12]     : Point of service entry mode = 323131343031323131323436
+Wed Aug  1 12:31:28 2018 MSec:  90687 ---->  Fld( 24)F[  3]     : Function code /Network International = 323030
+Wed Aug  1 12:31:28 2018 MSec:  90687 ---->  Fld( 32)V[  2]     : Acquiring institution identification code = 303030303031
+Wed Aug  1 12:31:28 2018 MSec:  90687 ---->  Fld( 33)V[  2]     : Forwarding institution identification code = 303030303031
+Wed Aug  1 12:31:28 2018 MSec:  90687 ---->  Fld( 35)V[  2]     : Track 2 data = 363339343036303130303030363630353D3231303235323131303030303836373030303030
+Wed Aug  1 12:31:28 2018 MSec:  90687 ---->  Fld( 37)F[ 12]     : Retrieval reference number = 393939303138323138393239
+Wed Aug  1 12:31:28 2018 MSec:  90687 ---->  Fld( 41)F[  8]     : Card acceptor terminal identification = 3031323130313031
+Wed Aug  1 12:31:28 2018 MSec:  90688 ---->  Fld( 42)F[ 15]     : Card acceptor identification code = 303030303030303031312020202020
+Wed Aug  1 12:31:28 2018 MSec:  90688 ---->  Fld( 43)V[  2]     : Card acceptor name/location = 4B4648204D4E49205457494E20544F574552202020202057696C617961682050657273654D590000
+Wed Aug  1 12:31:28 2018 MSec:  90688 ---->  Fld( 48)V[  3]     : Additional data - private = 5035303030345649534150353130303430353535
+Wed Aug  1 12:31:28 2018 MSec:  90688 ---->  Fld( 49)F[  3]     : Currency code, transaction = 383430
+Wed Aug  1 12:31:28 2018 MSec:  90688 ---->  Fld( 51)F[  3]     : Currency code, cardholder billing = 383430
+Wed Aug  1 12:31:28 2018 MSec:  90688 ---->  Fld(102)V[  2]     : Account identification 1 = 313030303030303030373737
+Wed Aug  1 12:31:28 2018 MSec:  90688 ----> =====================End Parsing=====================
+Wed Aug  1 12:31:28 2018 MSec:  90689 ----> =====================Start Parsing=====================
+Wed Aug  1 12:31:28 2018 MSec:  90689 ----> ISO Msg Length : 0317
+Wed Aug  1 12:31:28 2018 MSec:  90689 ----> Protocol ID : ISO
+Wed Aug  1 12:31:28 2018 MSec:  90689 ----> Power Card Header : 51000000
+Wed Aug  1 12:31:28 2018 MSec:  90689 ----> MTI : 1210
+Wed Aug  1 12:31:28 2018 MSec:  90689 ----> BITMAP Bytes : F6754501A8E1A0000000000004000000
+Wed Aug  1 12:31:28 2018 MSec:  90690 ----> BITMAP bits  : 11110110011101010100010100000001101010001110000110100000000000000000000000000000000000000000000000000100000000000000000000000000
+Wed Aug  1 12:31:28 2018 MSec:  90691 ---->  Fld(  2)V[  2]     : Primary account number = 6394060100006605
+Wed Aug  1 12:31:28 2018 MSec:  90691 ---->  Fld(  3)F[  6]     : Processing code = 012000
+Wed Aug  1 12:31:28 2018 MSec:  90692 ---->  Fld(  4)F[ 12]     : Amount transaction = 000000000110
+Wed Aug  1 12:31:28 2018 MSec:  90692 ---->  Fld(  6)F[ 12]     : Amount cardholder billing = 000000000110
+Wed Aug  1 12:31:28 2018 MSec:  90692 ---->  Fld(  7)F[ 10]     : Transmission date & time = 1126102659
+Wed Aug  1 12:31:28 2018 MSec:  90692 ---->  Fld( 10)F[  8]     : Conversion rate cardholder billing = 00000001
+Wed Aug  1 12:31:28 2018 MSec:  90692 ---->  Fld( 11)F[  6]     : System trace audit number = 400008
+Wed Aug  1 12:31:28 2018 MSec:  90693 ---->  Fld( 12)F[ 12]     : Transaction Date and Time = 090311182659
+Wed Aug  1 12:31:28 2018 MSec:  90693 ---->  Fld( 14)F[  4]     : Date expiration = 2102
+Wed Aug  1 12:31:28 2018 MSec:  90693 ---->  Fld( 16)F[  4]     : Date conversion = 0311
+Wed Aug  1 12:31:28 2018 MSec:  90693 ---->  Fld( 18)F[  4]     : Merchant type = 6011
+Wed Aug  1 12:31:28 2018 MSec:  90693 ---->  Fld( 22)F[ 12]     : Point of service entry mode = 211401211246
+Wed Aug  1 12:31:28 2018 MSec:  90694 ---->  Fld( 24)F[  3]     : Function code /Network International = 200
+Wed Aug  1 12:31:28 2018 MSec:  90694 ---->  Fld( 32)V[  2]     : Acquiring institution identification code = 000001
+Wed Aug  1 12:31:28 2018 MSec:  90694 ---->  Fld( 33)V[  2]     : Forwarding institution identification code = 000001
+Wed Aug  1 12:31:28 2018 MSec:  90694 ---->  Fld( 35)V[  2]     : Track 2 data = 6394060100006605=21025211000086700000
+Wed Aug  1 12:31:28 2018 MSec:  90694 ---->  Fld( 37)F[ 12]     : Retrieval reference number = 999018218929
+Wed Aug  1 12:31:28 2018 MSec:  90694 ---->  Fld( 41)F[  8]     : Card acceptor terminal identification = 01210101
+Wed Aug  1 12:31:28 2018 MSec:  90695 ---->  Fld( 42)F[ 15]     : Card acceptor identification code = 0000000011     
+Wed Aug  1 12:31:28 2018 MSec:  90695 ---->  Fld( 43)V[  2]     : Card acceptor name/location = KFH MNI TWIN TOWER     Wilayah PerseMY  
+Wed Aug  1 12:31:28 2018 MSec:  90695 ---->  Fld( 48)V[  3]     : Additional data - private = P50004VISAP510040555
+Wed Aug  1 12:31:28 2018 MSec:  90695 ---->  Fld( 49)F[  3]     : Currency code, transaction = 840
+Wed Aug  1 12:31:28 2018 MSec:  90695 ---->  Fld( 51)F[  3]     : Currency code, cardholder billing = 840
+Wed Aug  1 12:31:28 2018 MSec:  90695 ---->  Fld(102)V[  2]     : Account identification 1 = 100000000777
+Wed Aug  1 12:31:28 2018 MSec:  90695 ----> =====================End Parsing=====================
+Wed Aug  1 12:35:37 2018 MSec:    0 ----> =====================Start Parsing=====================
+Wed Aug  1 12:35:37 2018 MSec:    0 ----> ISO Msg Length : 0317
+Wed Aug  1 12:35:37 2018 MSec:    0 ----> Protocol ID : ISO
+Wed Aug  1 12:35:37 2018 MSec:    0 ----> Power Card Header : 51000000
+Wed Aug  1 12:35:37 2018 MSec:    0 ----> MTI : 1200
+Wed Aug  1 12:35:37 2018 MSec:    0 ----> BITMAP Bytes : F6754501A8E1A0000000000004000000
+Wed Aug  1 12:35:37 2018 MSec:    0 ----> BITMAP bits  : 11110110011101010100010100000001101010001110000110100000000000000000000000000000000000000000000000000100000000000000000000000000
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld(  2)V[  2]     : Primary account number = 36333934303630313030303036363035
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld(  3)F[  6]     : Processing code = 303132303030
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld(  4)F[ 12]     : Amount transaction = 303030303030303030313130
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld(  6)F[ 12]     : Amount cardholder billing = 303030303030303030313130
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld(  7)F[ 10]     : Transmission date & time = 31313236313032363539
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 10)F[  8]     : Conversion rate cardholder billing = 3030303030303031
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 11)F[  6]     : System trace audit number = 343030303038
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 12)F[ 12]     : Transaction Date and Time = 303930333131313832363539
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 14)F[  4]     : Date expiration = 32313032
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 16)F[  4]     : Date conversion = 30333131
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 18)F[  4]     : Merchant type = 36303131
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 22)F[ 12]     : Point of service entry mode = 323131343031323131323436
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 24)F[  3]     : Function code /Network International = 323030
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 32)V[  2]     : Acquiring institution identification code = 303030303031
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 33)V[  2]     : Forwarding institution identification code = 303030303031
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 35)V[  2]     : Track 2 data = 363339343036303130303030363630353D3231303235323131303030303836373030303030
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 37)F[ 12]     : Retrieval reference number = 393939303138323138393239
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 41)F[  8]     : Card acceptor terminal identification = 3031323130313031
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 42)F[ 15]     : Card acceptor identification code = 303030303030303031312020202020
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 43)V[  2]     : Card acceptor name/location = 4B4648204D4E49205457494E20544F574552202020202057696C617961682050657273654D590000
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 48)V[  3]     : Additional data - private = 5035303030345649534150353130303430353535
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 49)F[  3]     : Currency code, transaction = 383430
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 51)F[  3]     : Currency code, cardholder billing = 383430
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld(102)V[  2]     : Account identification 1 = 313030303030303030373737
+Wed Aug  1 12:35:38 2018 MSec:  202 ----> =====================End Parsing=====================
+Wed Aug  1 12:35:38 2018 MSec:  202 ----> =====================Start Parsing=====================
+Wed Aug  1 12:35:38 2018 MSec:  202 ----> ISO Msg Length : 0317
+Wed Aug  1 12:35:38 2018 MSec:  202 ----> Protocol ID : ISO
+Wed Aug  1 12:35:38 2018 MSec:  202 ----> Power Card Header : 51000000
+Wed Aug  1 12:35:38 2018 MSec:  202 ----> MTI : 1210
+Wed Aug  1 12:35:38 2018 MSec:  202 ----> BITMAP Bytes : F6754501A8E1A0000000000004000000
+Wed Aug  1 12:35:38 2018 MSec:  202 ----> BITMAP bits  : 11110110011101010100010100000001101010001110000110100000000000000000000000000000000000000000000000000100000000000000000000000000
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld(  2)V[  2]     : Primary account number = 6394060100006605
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld(  3)F[  6]     : Processing code = 012000
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld(  4)F[ 12]     : Amount transaction = 000000000110
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld(  6)F[ 12]     : Amount cardholder billing = 000000000110
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld(  7)F[ 10]     : Transmission date & time = 1126102659
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 10)F[  8]     : Conversion rate cardholder billing = 00000001
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 11)F[  6]     : System trace audit number = 400008
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 12)F[ 12]     : Transaction Date and Time = 090311182659
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 14)F[  4]     : Date expiration = 2102
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 16)F[  4]     : Date conversion = 0311
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 18)F[  4]     : Merchant type = 6011
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 22)F[ 12]     : Point of service entry mode = 211401211246
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 24)F[  3]     : Function code /Network International = 200
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 32)V[  2]     : Acquiring institution identification code = 000001
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 33)V[  2]     : Forwarding institution identification code = 000001
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 35)V[  2]     : Track 2 data = 6394060100006605=21025211000086700000
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 37)F[ 12]     : Retrieval reference number = 999018218929
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 41)F[  8]     : Card acceptor terminal identification = 01210101
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 42)F[ 15]     : Card acceptor identification code = 0000000011     
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 43)V[  2]     : Card acceptor name/location = KFH MNI TWIN TOWER     Wilayah PerseMY  
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 48)V[  3]     : Additional data - private = P50004VISAP510040555
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 49)F[  3]     : Currency code, transaction = 840
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld( 51)F[  3]     : Currency code, cardholder billing = 840
+Wed Aug  1 12:35:38 2018 MSec:  202 ---->  Fld(102)V[  2]     : Account identification 1 = 100000000777
+Wed Aug  1 12:35:38 2018 MSec:  202 ----> =====================End Parsing=====================

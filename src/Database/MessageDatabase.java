@@ -56,14 +56,16 @@ public class MessageDatabase {
         // Omar Saad & Islam Tarek // 1-8-2018
         
         String Status = "";
-        
+        int errorcode = 0; // 0 if no error occured and message was accepted 
         if(Utility.MsgStatus)
             Status="ACCEPTED";
-        else 
+        else {
             Status="REJECTED";
-        
+            errorcode=7 ; //7 is the error code if the message is rejected as it was send before the sign-on message
+        }
+       
 
-        String sql = "INSERT INTO elements(`MTI`," + column + ",`Status`,`LoggingTime`) VALUES (" + MTI + "," + Value + "," + '"' + Status + '"' + " ," + CurrDate + ")";
+        String sql = "INSERT INTO elements(`ErrorCode`,`MTI`," + column + ",`Status`,`LoggingTime`) VALUES ("+errorcode+"," + MTI + "," + Value + "," + '"' + Status + '"' + " ," + CurrDate + ")";
         stmt.executeUpdate(sql);
 
     }
