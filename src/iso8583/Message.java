@@ -1,6 +1,7 @@
 package iso8583;
 
 //Omar Saad (29/7/2018)
+import static Database.MessageDatabase.HexToAsci;
 import exceptions.NotHexadecimalFormatException;
 import exceptions.WrongMTIException;
 import exceptions.WrongMessageException;
@@ -170,7 +171,13 @@ public class Message extends MessageParser {
         ArrayList<FieldInfo> res = null;
         try {
             res = parsingMessage(DataElements, BitMap, MTI);
-            AddToDB(DataElements, BitMap, MTI);
+            
+            if(!HexToAsci(MTI).equals("1804"))
+                AddToDB(DataElements, BitMap, MTI);
+            
+            if(HexToAsci(MTI).equals("1804"))
+            Utility.MsgStatus=true;
+            
         } catch (SQLException ex) {
             ex.printStackTrace();
             Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);

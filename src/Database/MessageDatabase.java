@@ -1,6 +1,7 @@
 package Database;
 
 import iso8583.FieldInfo;
+import iso8583.Utility;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -43,12 +44,26 @@ public class MessageDatabase {
             Value += ", " + '"' + HexToAsci(DataInfo.get(i).getDE()) + '"';
 
         }
-
+        
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         String CurrDate = '"' + dateFormat.format(date) + '"';
+        
+        
+        
+        
+        // To check whether sign-on message has been recieved or not so that the message is accepted or rejected
+        // Omar Saad & Islam Tarek // 1-8-2018
+        
+        String Status = "";
+        
+        if(Utility.MsgStatus)
+            Status="ACCEPTED";
+        else 
+            Status="REJECTED";
+        
 
-        String sql = "INSERT INTO elements(`MTI`," + column + ",`Status`,`LoggingTime`) VALUES (" + MTI + "," + Value + "," + '"' + "ACCEPTED" + '"' + " ," + CurrDate + ")";
+        String sql = "INSERT INTO elements(`MTI`," + column + ",`Status`,`LoggingTime`) VALUES (" + MTI + "," + Value + "," + '"' + Status + '"' + " ," + CurrDate + ")";
         stmt.executeUpdate(sql);
 
     }
