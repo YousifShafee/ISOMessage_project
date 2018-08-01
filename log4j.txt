@@ -1,0 +1,86 @@
+Tue Jul  31 14:39:16 2018 MSec:    0 ----> =====================Start Parsing=====================
+Tue Jul  31 14:39:16 2018 MSec:    0 ----> ISO Msg Length : 0062
+Tue Jul  31 14:39:16 2018 MSec:    0 ----> Protocol ID : ISO
+Tue Jul  31 14:39:16 2018 MSec:    0 ----> Power Card Header : 51000000
+Tue Jul  31 14:39:16 2018 MSec:    0 ----> MTI : 1834
+Tue Jul  31 14:39:16 2018 MSec:    0 ----> BITMAP Bytes : 82200000080000000400000000000000
+Tue Jul  31 14:39:16 2018 MSec:    0 ----> BITMAP bits  : 10000010001000000000000000000000000010000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000
+Tue Jul  31 14:39:16 2018 MSec:  203 ---->  Fld(  7)F[ 10]     : Transmission date & time = 30313237313034373434
+Tue Jul  31 14:39:16 2018 MSec:  203 ---->  Fld( 11)F[  6]     : System trace audit number = 303031343439
+Tue Jul  31 14:39:16 2018 MSec:  203 ---->  Fld( 37)F[ 12]     : Retrieval reference number = 363032373130303031343439
+Tue Jul  31 14:39:16 2018 MSec:  203 ---->  Fld( 70)F[  3]     : Network management information code = 303031
+Tue Jul  31 14:39:16 2018 MSec:  203 ----> =====================End Parsing=====================
+Tue Jul  31 14:39:16 2018 MSec:  203 ----> =====================Start Parsing=====================
+Tue Jul  31 14:45:18 2018 MSec:    0 ----> =====================Start Parsing=====================
+Tue Jul  31 14:45:18 2018 MSec:   16 ----> ISO Msg Length : 0062
+Tue Jul  31 14:45:18 2018 MSec:   16 ----> Protocol ID : ISO
+Tue Jul  31 14:45:18 2018 MSec:   16 ----> Power Card Header : 51000000
+Tue Jul  31 14:45:18 2018 MSec:   16 ----> MTI : 1804
+Tue Jul  31 14:45:18 2018 MSec:   16 ----> BITMAP Bytes : 82200000080000000400000000000000
+Tue Jul  31 14:45:18 2018 MSec:   16 ----> BITMAP bits  : 10000010001000000000000000000000000010000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000
+Tue Jul  31 14:45:19 2018 MSec:  213 ---->  Fld(  7)F[ 10]     : Transmission date & time = 30313237313034373434
+Tue Jul  31 14:45:19 2018 MSec:  213 ---->  Fld( 11)F[  6]     : System trace audit number = 303031343439
+Tue Jul  31 14:45:19 2018 MSec:  213 ---->  Fld( 37)F[ 12]     : Retrieval reference number = 363032373130303031343439
+Tue Jul  31 14:45:19 2018 MSec:  213 ---->  Fld( 70)F[  3]     : Network management information code = 303031
+Tue Jul  31 14:45:19 2018 MSec:  213 ----> =====================End Parsing=====================
+Tue Jul  31 14:45:19 2018 MSec:  213 ----> =====================Start Parsing=====================
+Tue Jul  31 14:45:19 2018 MSec:  213 ----> ISO Msg Length : 0062
+Tue Jul  31 14:45:19 2018 MSec:  213 ----> Protocol ID : ISO
+Tue Jul  31 14:45:19 2018 MSec:  213 ----> Power Card Header : 51000000
+Tue Jul  31 14:45:19 2018 MSec:  213 ----> MTI : 1814
+Tue Jul  31 14:45:19 2018 MSec:  213 ----> BITMAP Bytes : 82200000080000000400000000000000
+Tue Jul  31 14:45:19 2018 MSec:  213 ----> BITMAP bits  : 10000010001000000000000000000000000010000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000
+Tue Jul  31 14:45:19 2018 MSec:  213 ---->  Fld(  7)F[ 10]     : Transmission date & time = 0127104744
+Tue Jul  31 14:45:19 2018 MSec:  213 ---->  Fld( 11)F[  6]     : System trace audit number = 001449
+Tue Jul  31 14:45:19 2018 MSec:  213 ---->  Fld( 37)F[ 12]     : Retrieval reference number = 602710001449
+Tue Jul  31 14:45:19 2018 MSec:  213 ---->  Fld( 70)F[  3]     : Network management information code = 001
+Tue Jul  31 14:45:19 2018 MSec:  213 ----> =====================End Parsing=====================
+Tue Jul  31 14:45:41 2018 MSec:  22239 ----> =====================Start Parsing=====================
+Tue Jul  31 14:45:41 2018 MSec:  22239 ----> ISO Msg Length : 0062
+Tue Jul  31 14:45:41 2018 MSec:  22239 ----> Protocol ID : ISO
+Tue Jul  31 14:45:41 2018 MSec:  22239 ----> Power Card Header : 51000000
+Tue Jul  31 14:45:41 2018 MSec:  22239 ----> MTI : 1804
+Tue Jul  31 14:45:41 2018 MSec:  22239 ----> BITMAP Bytes : 82200000080000000400000000000000
+Tue Jul  31 14:45:41 2018 MSec:  22239 ----> BITMAP bits  : 10000010001000000000000000000000000010000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000
+Tue Jul  31 14:45:41 2018 MSec:  22270 ---->  Fld(  7)F[ 10]     : Transmission date & time = 30313237313034373434
+Tue Jul  31 14:45:41 2018 MSec:  22270 ---->  Fld( 11)F[  6]     : System trace audit number = 303031343439
+Tue Jul  31 14:45:41 2018 MSec:  22270 ---->  Fld( 37)F[ 12]     : Retrieval reference number = 363032373130303031343439
+Tue Jul  31 14:45:41 2018 MSec:  22270 ---->  Fld( 70)F[  3]     : Network management information code = 303031
+Tue Jul  31 14:45:41 2018 MSec:  22270 ----> =====================End Parsing=====================
+Tue Jul  31 14:45:41 2018 MSec:  22270 ----> =====================Start Parsing=====================
+Tue Jul  31 14:45:41 2018 MSec:  22270 ----> ISO Msg Length : 0062
+Tue Jul  31 14:45:41 2018 MSec:  22270 ----> Protocol ID : ISO
+Tue Jul  31 14:45:41 2018 MSec:  22270 ----> Power Card Header : 51000000
+Tue Jul  31 14:45:41 2018 MSec:  22270 ----> MTI : 1814
+Tue Jul  31 14:45:41 2018 MSec:  22270 ----> BITMAP Bytes : 82200000080000000400000000000000
+Tue Jul  31 14:45:41 2018 MSec:  22270 ----> BITMAP bits  : 10000010001000000000000000000000000010000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000
+Tue Jul  31 14:45:41 2018 MSec:  22286 ---->  Fld(  7)F[ 10]     : Transmission date & time = 0127104744
+Tue Jul  31 14:45:41 2018 MSec:  22286 ---->  Fld( 11)F[  6]     : System trace audit number = 001449
+Tue Jul  31 14:45:41 2018 MSec:  22286 ---->  Fld( 37)F[ 12]     : Retrieval reference number = 602710001449
+Tue Jul  31 14:45:41 2018 MSec:  22286 ---->  Fld( 70)F[  3]     : Network management information code = 001
+Tue Jul  31 14:45:41 2018 MSec:  22286 ----> =====================End Parsing=====================
+Tue Jul  31 14:45:45 2018 MSec:  26692 ----> =====================Start Parsing=====================
+Tue Jul  31 14:45:45 2018 MSec:  26692 ----> ISO Msg Length : 0062
+Tue Jul  31 14:45:45 2018 MSec:  26692 ----> Protocol ID : ISO
+Tue Jul  31 14:45:45 2018 MSec:  26692 ----> Power Card Header : 51000000
+Tue Jul  31 14:45:45 2018 MSec:  26692 ----> MTI : 1804
+Tue Jul  31 14:45:45 2018 MSec:  26692 ----> BITMAP Bytes : 82200000080000000400000000000000
+Tue Jul  31 14:45:45 2018 MSec:  26692 ----> BITMAP bits  : 10000010001000000000000000000000000010000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000
+Tue Jul  31 14:45:45 2018 MSec:  26707 ---->  Fld(  7)F[ 10]     : Transmission date & time = 30313237313034373434
+Tue Jul  31 14:45:45 2018 MSec:  26707 ---->  Fld( 11)F[  6]     : System trace audit number = 303031343439
+Tue Jul  31 14:45:45 2018 MSec:  26707 ---->  Fld( 37)F[ 12]     : Retrieval reference number = 363032373130303031343439
+Tue Jul  31 14:45:45 2018 MSec:  26707 ---->  Fld( 70)F[  3]     : Network management information code = 303031
+Tue Jul  31 14:45:45 2018 MSec:  26707 ----> =====================End Parsing=====================
+Tue Jul  31 14:45:45 2018 MSec:  26707 ----> =====================Start Parsing=====================
+Tue Jul  31 14:45:45 2018 MSec:  26707 ----> ISO Msg Length : 0062
+Tue Jul  31 14:45:45 2018 MSec:  26707 ----> Protocol ID : ISO
+Tue Jul  31 14:45:45 2018 MSec:  26707 ----> Power Card Header : 51000000
+Tue Jul  31 14:45:45 2018 MSec:  26707 ----> MTI : 1814
+Tue Jul  31 14:45:45 2018 MSec:  26707 ----> BITMAP Bytes : 82200000080000000400000000000000
+Tue Jul  31 14:45:45 2018 MSec:  26707 ----> BITMAP bits  : 10000010001000000000000000000000000010000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000
+Tue Jul  31 14:45:45 2018 MSec:  26723 ---->  Fld(  7)F[ 10]     : Transmission date & time = 0127104744
+Tue Jul  31 14:45:45 2018 MSec:  26723 ---->  Fld( 11)F[  6]     : System trace audit number = 001449
+Tue Jul  31 14:45:45 2018 MSec:  26723 ---->  Fld( 37)F[ 12]     : Retrieval reference number = 602710001449
+Tue Jul  31 14:45:45 2018 MSec:  26723 ---->  Fld( 70)F[  3]     : Network management information code = 001
+Tue Jul  31 14:45:45 2018 MSec:  26723 ----> =====================End Parsing=====================
+Tue Jul  31 14:45:48 2018 MSec:  29434 ----> =====================Start Parsing=====================
