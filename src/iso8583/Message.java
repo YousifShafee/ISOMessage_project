@@ -220,9 +220,9 @@ public class Message extends MessageParser {
 
     public Message response() throws SQLException, ClassNotFoundException, WrongMessageException {
         String AsciMTI = HexToAsci(MTI);
-        // int mti = Integer.parseInt(AsciMTI);
+       
         String ResponseMTI = "";
-        //try{
+        
         switch (AsciMTI) {
             case "1804":
                 ResponseMTI = "31383134";
@@ -244,9 +244,7 @@ public class Message extends MessageParser {
             default:
                 throw new WrongMTIException("Wrong MTI", MTI);
         }
-        //} catch(Exception e){
-        //  return new Message("Wrong MTI");
-
+        
         Message response = new Message(MsgLength + ISO + PowerCardHeader + ResponseMTI + BitMap + DataElements);
         ArrayList<FieldInfo> res = null;
         res = parsingMessage(DataElements, BitMap, MTI);

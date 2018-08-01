@@ -26,17 +26,11 @@ public class MessageDatabase {
     }
 
     public void insertInDb(ArrayList<FieldInfo> DataInfo, String MTI) throws SQLException, ClassNotFoundException {
-        // String value="VALUES (";
+        
         Class.forName("com.mysql.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "");
         Statement stmt = con.createStatement();
-        //ResultSet rs = stmt.executeQuery("select id from account");
-//        while(rs.next())
-//        {
-//            String id = rs.getString(1);
-//          //  String name= rs.getString(2);
-//            System.out.println(id+"    ");
-//        }
+        
         String column = "`Field" + DataInfo.get(0).getFieldNo() + "` ";
         String Value = HexToAsci(DataInfo.get(0).getDE());
         for (int i = 1; i < DataInfo.size(); i++) {

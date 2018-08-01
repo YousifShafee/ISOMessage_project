@@ -37,7 +37,6 @@ public class MultiThreadServer implements Runnable {
     public void run() {
         try {
             DataInputStream mDataInputStream = new DataInputStream(csocket.getInputStream());
-            // BufferedReader mBufferReader = new BufferedReader(new InputStreamReader(System.in));
             DataOutputStream mDataOutputStream = new DataOutputStream(csocket.getOutputStream());
 
             while (true) {
@@ -45,7 +44,7 @@ public class MultiThreadServer implements Runnable {
 //____________________Get message______________________
                 String Msg = "";
                 Message m = null;
-                // try{
+                
                 Msg = mDataInputStream.readUTF();
                 try {
                     m = new Message(Msg);
@@ -55,10 +54,7 @@ public class MultiThreadServer implements Runnable {
                 }
                 System.out.println("client :" + Msg);
                 System.out.println(m);
-                // }catch(Exception e){
-                //   String out = "Wrong Message";
-                // mDataOutputStream.writeUTF(out);
-                //}
+                
                 if(!validMsg){
                     mDataInputStream.reset();
                     continue;
@@ -66,7 +62,7 @@ public class MultiThreadServer implements Runnable {
                 
                 try {
                     //___________________Response_________________________________
-                    //String so = mBufferReader.readLine();
+                   
 
                     mDataOutputStream.writeUTF(m.response().getMsg());
 
