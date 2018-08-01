@@ -21,6 +21,11 @@ public class Message extends MessageParser {
     private String DataElements = "";
 
     public Message(String Msg) throws WrongMessageException {
+       
+        //remove spaces from String
+        Msg = Msg.replaceAll(" ", "");
+        
+        
         /*
          author: islam tareq
          date:   1/8/2018
@@ -36,8 +41,7 @@ public class Message extends MessageParser {
         // Start Logging
         Utility.logger.info("=====================Start Parsing=====================");
 
-        //remove spaces from String
-        Msg = Msg.replaceAll(" ", "");
+        
         //get message length in hex and put it in String MsgLength
         int i = 0;//counter
         while (i < 8) {
@@ -166,6 +170,7 @@ public class Message extends MessageParser {
         ArrayList<FieldInfo> res = null;
         try {
             res = parsingMessage(DataElements, BitMap, MTI);
+            AddToDB(DataElements, BitMap, MTI);
         } catch (SQLException ex) {
             ex.printStackTrace();
             Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);

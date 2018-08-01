@@ -37,10 +37,11 @@ public class MultiThreadServer implements Runnable {
     public void run() {
         try {
             DataInputStream mDataInputStream = new DataInputStream(csocket.getInputStream());
-            BufferedReader mBufferReader = new BufferedReader(new InputStreamReader(System.in));
+            // BufferedReader mBufferReader = new BufferedReader(new InputStreamReader(System.in));
             DataOutputStream mDataOutputStream = new DataOutputStream(csocket.getOutputStream());
 
             while (true) {
+                boolean validMsg = false;
 //____________________Get message______________________
                 String Msg = "";
                 Message m = null;
@@ -48,6 +49,7 @@ public class MultiThreadServer implements Runnable {
                 Msg = mDataInputStream.readUTF();
                 try {
                     m = new Message(Msg);
+                    validMsg = true;
                 } catch (WrongMessageException ex) {
                     Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -57,14 +59,16 @@ public class MultiThreadServer implements Runnable {
                 //   String out = "Wrong Message";
                 // mDataOutputStream.writeUTF(out);
                 //}
+                if(!validMsg){
+                    mDataInputStream.reset();
+                    continue;
+                }
+                
                 try {
                     //___________________Response_________________________________
                     //String so = mBufferReader.readLine();
-                    try {
-                        mDataOutputStream.writeUTF(m.response().getMsg());
-                    } catch (NullPointerException e) {
 
-                    }
+                    mDataOutputStream.writeUTF(m.response().getMsg());
 
                 } catch (WrongMessageException ex) {
                     Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
@@ -75,6 +79,7 @@ public class MultiThreadServer implements Runnable {
             }
         } catch (IOException ex) {
             Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("hello");
         } catch (SQLException ex) {
             Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {

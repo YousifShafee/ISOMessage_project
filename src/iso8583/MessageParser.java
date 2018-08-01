@@ -304,9 +304,13 @@ public class MessageParser {
 
             }
         }
-        MessageDatabase DB = new MessageDatabase();
-        DB.insertInDb(dataElements, Message.HexToAsci(MTI));
+        
         return dataElements;
+    }
+    
+    public static void AddToDB(String restOfMsg, String BitMap, String MTI) throws SQLException, ClassNotFoundException, ZeroBitmapException{
+        MessageDatabase DB = new MessageDatabase();
+        DB.insertInDb(parsingMessage(restOfMsg, BitMap, MTI), Message.HexToAsci(MTI));
     }
 
 }
