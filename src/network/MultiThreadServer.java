@@ -46,17 +46,29 @@ public class MultiThreadServer implements Runnable {
                 Message m = null;
                 // try{
                 Msg = mDataInputStream.readUTF();
-                m = new Message(Msg);
+                try {
+                    m = new Message(Msg);
+                } catch (WrongMessageException ex) {
+                    Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 System.out.println("client :" + Msg);
                 System.out.println(m);
                 // }catch(Exception e){
                 //   String out = "Wrong Message";
                 // mDataOutputStream.writeUTF(out);
                 //}
+                try {
+                    //___________________Response_________________________________
+                    //String so = mBufferReader.readLine();
+                    try {
+                        mDataOutputStream.writeUTF(m.response().getMsg());
+                    } catch (NullPointerException e) {
 
-//___________________Response_________________________________
-                //String so = mBufferReader.readLine();
-                mDataOutputStream.writeUTF(m.response().getMsg());
+                    }
+
+                } catch (WrongMessageException ex) {
+                    Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 if (Msg.equalsIgnoreCase("exit")) {
                     break;
                 }
@@ -67,11 +79,6 @@ public class MultiThreadServer implements Runnable {
             Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
-<<<<<<< HEAD
-        } catch (WrongMessageException ex) {
-            Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
-=======
->>>>>>> 39ac16818df943e36cadd7082913f16f405e6f09
         }
 
         try {
