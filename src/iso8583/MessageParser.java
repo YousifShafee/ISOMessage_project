@@ -221,11 +221,11 @@ public class MessageParser {
                     dataElements.add(new FieldInfo(dataElementNo, dataElement, lengthIndecator.getDes()));
                     if (i == 7) {
                         field7ToCheckExist = Message.HexToAsci(dataElement);
-                        System.out.println("field7: " + field7ToCheckExist);
+                        //System.out.println("field7: " + field7ToCheckExist);
 
                     } else if (i == 11) {
                         field11ToCheckExist = Message.HexToAsci(dataElement);
-                        System.out.println("field11: " + field11ToCheckExist);
+                        //System.out.println("field11: " + field11ToCheckExist);
                     }
                     if (messageDatabase.getMessage(field7ToCheckExist, field7ToCheckExist)) {
                         Utility.isRejected = true;

@@ -70,7 +70,7 @@ public class MessageDatabase {
             Status = "ACCEPTED";
         } else {
             Status = "REJECTED";
-            errorcode = Constants.ISO_ERROR_CODE_SIGN_ON_NOT_RECEIVED; //7 is the error code if the message is rejected as it was send before the sign-on message
+            errorcode = Constants.ISO_ERROR_REPEATED; //7 is the error code if the message is rejected as it was send before the sign-on message
         }
         String sql = "INSERT INTO elements(`ErrorCode`,`MTI`," + column + ",`Status`,`LoggingTime`) VALUES (" + errorcode + "," + MTI + "," + Value + "," + '"' + Status + '"' + " ," + CurrDate + ")";
         stmt.executeUpdate(sql);
@@ -118,6 +118,6 @@ public class MessageDatabase {
         boolean flag = stmt.executeQuery(sql).next() == true;
         con.close();
         return flag;
-        
+
     }
 }
