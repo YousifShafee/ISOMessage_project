@@ -74,7 +74,7 @@ public class MessageDatabase {
         }
         String sql = "INSERT INTO elements(`ErrorCode`,`MTI`," + column + ",`Status`,`LoggingTime`) VALUES (" + errorcode + "," + MTI + "," + Value + "," + '"' + Status + '"' + " ," + CurrDate + ")";
         stmt.executeUpdate(sql);
-
+        con.close();
     }
 
     //Omar Saad & Youssef Shafee & Mostafa Mohamed & Islam tareq // 2 -8-2018  
@@ -115,7 +115,9 @@ public class MessageDatabase {
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "");
         Statement stmt = con.createStatement();
         String sql = "SELECT Field7, Field11 FROM elements WHERE Field7=" + "'" + field7 + "'" + "AND Field11 = " + "'" + field11 + "'";
-
-        return stmt.executeQuery(sql).next() == true;
+        boolean flag = stmt.executeQuery(sql).next() == true;
+        con.close();
+        return flag;
+        
     }
 }

@@ -75,7 +75,6 @@ public class MultiThreadServer implements Runnable {
             }
         } catch (IOException ex) {
             Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("hello");
         } catch (SQLException ex) {
             Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
