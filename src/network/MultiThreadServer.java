@@ -2,7 +2,7 @@ package network;
 
 import exceptions.WrongMessageException;
 import iso8583.Message;
-import iso8583.Utility;
+import commons.Utility;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
