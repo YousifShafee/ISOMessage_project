@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Database.MessageDatabase;
 import commons.Constants;
+
 public class Message extends MessageParser {
 
     private String Msg; // The complete message 
@@ -23,12 +24,11 @@ public class Message extends MessageParser {
     private String BitMap = "";
     private String DataElements = "";
 
-    public Message(String Msg) throws WrongMessageException {
-       
+    public Message(String Msg) throws WrongMessageException, ClassNotFoundException, SQLException {
+
         //remove spaces from String
         Msg = Msg.replaceAll(" ", "");
-        
-        
+
         /*
          author: islam tareq
          date:   1/8/2018
@@ -44,7 +44,6 @@ public class Message extends MessageParser {
         // Start Logging
         Utility.logger.info("=====================Start Parsing=====================");
 
-        
         //get message length in hex and put it in String MsgLength
         int i = 0;//counter
         while (i < 8) {
@@ -81,7 +80,7 @@ public class Message extends MessageParser {
             MTI = MTI + Msg.charAt(i);
             i++;
         }
-            
+
         // Logging for MTI
         Utility.loggerString = String.format("MTI : %s", HexToAsci(MTI));
         Utility.logger.info(Utility.loggerString);
@@ -127,13 +126,13 @@ public class Message extends MessageParser {
             DataElements = DataElements + Msg.charAt(i);
             i++;
         }
-        if(HexToAsci(MTI).equals("1420")||HexToAsci(MTI).equals("1421"))
-                Reversing(DataElements,BitMap,MTI);
+        if (HexToAsci(MTI).equals("1420") || HexToAsci(MTI).equals("1421")) {
+            Reversing(DataElements, BitMap, MTI);
+        }
 
     }
 
     //GETTERS
-
     public String getMsg() {
         return Msg;
     }
@@ -175,13 +174,15 @@ public class Message extends MessageParser {
         ArrayList<FieldInfo> res = null;
         try {
             res = parsingMessage(DataElements, BitMap, MTI);
-            
-            if(!HexToAsci(MTI).equals("1804"))
+
+            if (!HexToAsci(MTI).equals("1804")) {
                 AddToDB(DataElements, BitMap, MTI);
-            
-            if(HexToAsci(MTI).equals("1804"))
-            Utility.MsgStatus=true;
-            
+            }
+
+            if (HexToAsci(MTI).equals("1804")) {
+                Utility.MsgStatus = true;
+            }
+
         } catch (SQLException ex) {
             ex.printStackTrace();
             Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
@@ -224,9 +225,9 @@ public class Message extends MessageParser {
 
     public Message response() throws SQLException, ClassNotFoundException, WrongMessageException {
         String AsciMTI = HexToAsci(MTI);
-       
+
         String ResponseMTI = "";
-        
+
         switch (AsciMTI) {
             case "1804":
                 ResponseMTI = "31383134";
@@ -248,7 +249,7 @@ public class Message extends MessageParser {
             default:
                 throw new WrongMTIException("Wrong MTI", MTI);
         }
-        
+
         Message response = new Message(MsgLength + ISO + PowerCardHeader + ResponseMTI + BitMap + DataElements);
         ArrayList<FieldInfo> res = null;
         res = parsingMessage(DataElements, BitMap, MTI);
@@ -271,54 +272,53 @@ public class Message extends MessageParser {
     }
 
     //Youussef Shafee & Omar Saad //1-8-2018 
-    public void Reversing (String DataElements,String BitMap,String MTI){
-        ArrayList<FieldInfo> DE=null;
+    public void Reversing(String DataElements, String BitMap, String MTI) throws ClassNotFoundException, SQLException {
+        ArrayList<FieldInfo> DE = null;
         try {
-          DE =  parsingMessage(DataElements, BitMap, MTI);
+            DE = parsingMessage(DataElements, BitMap, MTI);
         } catch (ZeroBitmapException ex) {
             ex.printStackTrace();
             Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String Field56="";
-        for(int k=0;k<DE.size();k++){
-            if(DE.get(k).getFieldNo()==56){
-                 Field56 =HexToAsci (DE.get(k).getDE());
+        String Field56 = "";
+        for (int k = 0; k < DE.size(); k++) {
+            if (DE.get(k).getFieldNo() == 56) {
+                Field56 = HexToAsci(DE.get(k).getDE());
             }
         }
-         int c = 0;//counter
-         String MTI56="";
+        int c = 0;//counter
+        String MTI56 = "";
         while (c < 4) {
-            MTI56 = MTI56+ Field56.charAt(c);
+            MTI56 = MTI56 + Field56.charAt(c);
             c++;
         }
-         String DE11="";
+        String DE11 = "";
         while (c < 10) {
-            DE11 = DE11+ Field56.charAt(c);
+            DE11 = DE11 + Field56.charAt(c);
             c++;
         }
-         String DE12="";
+        String DE12 = "";
         while (c < 12) {
-            DE12 = DE12+ Field56.charAt(c);
+            DE12 = DE12 + Field56.charAt(c);
             c++;
         }
-        
-        String DE7="";
+
+        String DE7 = "";
         while (c < 22) {
-            DE7 = DE7+ Field56.charAt(c);
+            DE7 = DE7 + Field56.charAt(c);
             c++;
         }
         try {
-           Reversing reversed= MessageDatabase.SearchReversal(MTI56, DE7, DE11, DE12);
-           if(reversed==Reversing.ACCEPTED){
-               Utility.ReversedStatus=new ErrorCode(reversed, Constants.ISO_ERROR_CODE_SUCCESS);              
-           }
-           else if(reversed==Reversing.REJECTED)
-               Utility.ReversedStatus=new ErrorCode(reversed, Constants.ISO_ERROR_REVERSING_REJECTED);
-           else{
-               Utility.ReversedStatus=new ErrorCode(reversed, Constants.ISO_ERROR_REVERSING_NOTFOUND);
-              
-           }
-           
+            Reversing reversed = MessageDatabase.SearchReversal(MTI56, DE7, DE11, DE12);
+            if (reversed == Reversing.ACCEPTED) {
+                Utility.ReversedStatus = new ErrorCode(reversed, Constants.ISO_ERROR_CODE_SUCCESS);
+            } else if (reversed == Reversing.REJECTED) {
+                Utility.ReversedStatus = new ErrorCode(reversed, Constants.ISO_ERROR_REVERSING_REJECTED);
+            } else {
+                Utility.ReversedStatus = new ErrorCode(reversed, Constants.ISO_ERROR_REVERSING_NOTFOUND);
+
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {

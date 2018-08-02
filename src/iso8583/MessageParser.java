@@ -1,12 +1,15 @@
 package iso8583;
 
 import Database.MessageDatabase;
+import commons.Utility;
 import exceptions.ZeroBitmapException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MessageParser {
+
+    private static Database.MessageDatabase messageDatabase = new MessageDatabase();
 
     //Change from hex to Binary
     //Omar Saad // 29/7/2018
@@ -57,7 +60,6 @@ public class MessageParser {
     // mariam esmail //29/7/2018
     public static FieldType getElementLength(int elementno) {
 
-        
         FieldType[] DataElements = new FieldType[129];
         DataElements[0] = null;
         DataElements[1] = null;
@@ -191,7 +193,6 @@ public class MessageParser {
 
         return DataElements[elementno];
 
-       
     }
 
     /* parsingMessage function
@@ -202,8 +203,8 @@ public class MessageParser {
      */
     //Omar Review:- this method can take only 1  parameter(Message Msg) and use the getter methods to get any variable
     //              instead of (String restOfMsg,String BitMap,String MTI) 
-    public static ArrayList<FieldInfo> parsingMessage(String restOfMsg, String BitMap, String MTI) throws ZeroBitmapException  {
-
+    public static ArrayList<FieldInfo> parsingMessage(String restOfMsg, String BitMap, String MTI) throws ZeroBitmapException, ClassNotFoundException, SQLException {
+        String field7ToCheckExist = "", field11ToCheckExist = "";
         ArrayList<FieldInfo> dataElements = new ArrayList<>();
         int dataElementNo, lengthDigits;
         String dataElement = null;
@@ -218,7 +219,17 @@ public class MessageParser {
                     dataElement = restOfMsg.substring(0, lengthIndecator.getLength() * 2);
                     restOfMsg = restOfMsg.substring(lengthIndecator.getLength() * 2);
                     dataElements.add(new FieldInfo(dataElementNo, dataElement, lengthIndecator.getDes()));
+                    if (i == 7) {
+                        field7ToCheckExist = Message.HexToAsci(dataElement);
+                        System.out.println("field7: " + field7ToCheckExist);
 
+                    } else if (i == 11) {
+                        field11ToCheckExist = Message.HexToAsci(dataElement);
+                        System.out.println("field11: " + field11ToCheckExist);
+                    }
+                    if (messageDatabase.getMessage(field7ToCheckExist, field7ToCheckExist)) {
+                        Utility.isRejected = true;
+                    }
                 } else if (lengthIndecator.getIsVar()) {
 ///////////////////////////////////////
                     String hex = restOfMsg.substring(0, lengthIndecator.getLength() * 2);
@@ -238,14 +249,13 @@ public class MessageParser {
 
             }
         }
-        
+
         return dataElements;
     }
-    
-    
+
     //This method adds the message to the DataBase
     //Omar Saad // 1-8-2018
-    public static void AddToDB(String restOfMsg, String BitMap, String MTI) throws SQLException, ClassNotFoundException, ZeroBitmapException{
+    public static void AddToDB(String restOfMsg, String BitMap, String MTI) throws SQLException, ClassNotFoundException, ZeroBitmapException {
         MessageDatabase DB = new MessageDatabase();
         DB.insertInDb(parsingMessage(restOfMsg, BitMap, MTI), Message.HexToAsci(MTI));
     }
