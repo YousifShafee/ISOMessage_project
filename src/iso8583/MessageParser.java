@@ -204,7 +204,7 @@ public class MessageParser {
     //Omar Review:- this method can take only 1  parameter(Message Msg) and use the getter methods to get any variable
     //              instead of (String restOfMsg,String BitMap,String MTI) 
     public static ArrayList<FieldInfo> parsingMessage(String restOfMsg, String BitMap, String MTI) throws ZeroBitmapException, ClassNotFoundException, SQLException {
-       // String field7ToCheckExist = "", field11ToCheckExist = "";
+       
         ArrayList<FieldInfo> dataElements = new ArrayList<>();
         int dataElementNo, lengthDigits;
         String dataElement = null;
@@ -219,26 +219,16 @@ public class MessageParser {
                     dataElement = restOfMsg.substring(0, lengthIndecator.getLength() * 2);
                     restOfMsg = restOfMsg.substring(lengthIndecator.getLength() * 2);
                     dataElements.add(new FieldInfo(dataElementNo, dataElement, lengthIndecator.getDes()));
-//                    if (i == 7) {
-//                        field7ToCheckExist = Message.HexToAsci(dataElement);
-//                        //System.out.println("field7: " + field7ToCheckExist);
-//
-//                    } else if (i == 11) {
-//                        field11ToCheckExist = Message.HexToAsci(dataElement);
-//                        //System.out.println("field11: " + field11ToCheckExist);
-//                    }
-//                    if (messageDatabase.getMessage(field7ToCheckExist, field11ToCheckExist)) {
-//                        Utility.isRejected = false;
-//                    }
+
                 } else if (lengthIndecator.getIsVar()) {
-///////////////////////////////////////
+
                     String hex = restOfMsg.substring(0, lengthIndecator.getLength() * 2);
                     StringBuilder output = new StringBuilder();
                     for (int j = 0; j < hex.length(); j += 2) {
                         String str = hex.substring(j, j + 2);
                         output.append((char) Integer.parseInt(str, 16));
                     }
-                    ///////////////////  ////    //   ///    //////
+                    
                     lengthDigits = Integer.parseInt(output.toString());
 
                     restOfMsg = restOfMsg.substring(lengthIndecator.getLength() * 2);
