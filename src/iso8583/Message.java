@@ -129,7 +129,17 @@ public class Message extends MessageParser {
         if (HexToAsci(MTI).equals("1420") || HexToAsci(MTI).equals("1421")) {
             Reversing(DataElements, BitMap, MTI);
         }
-
+        //Check Repeated
+        ArrayList<FieldInfo> f =MessageParser.parsingMessage(DataElements, BitMap, MTI);
+        String de7="";
+        String de11="";
+        for(int q=0;q<f.size();q++){
+            if(f.get(q).getFieldNo()==7)
+               de7=HexToAsci( f.get(q).getDE());
+            if(f.get(q).getFieldNo()==11)
+               de11=HexToAsci( f.get(q).getDE());
+        }
+        Utility.isRepeated=MessageDatabase.IsRepeated(de7, de11);
     }
 
     //GETTERS

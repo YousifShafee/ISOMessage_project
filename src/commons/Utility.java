@@ -13,5 +13,5 @@ public class Utility {
     public static String loggerString;
     public static boolean MsgStatus = false; // Flag to indicate Sign-on message Recieved or not. //Omar Saad & Islam Tarek // 1/8/2018 
     public static ErrorCode ReversedStatus;
-    public static boolean isRejected = false;
+    public static boolean isRepeated = false;
 }

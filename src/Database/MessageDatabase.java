@@ -66,15 +66,26 @@ public class MessageDatabase {
                 errorcode = Constants.ISO_ERROR_REVERSING_NOTFOUND;
             }
         }
-        if (!Utility.isRejected) {
-            Status = "ACCEPTED";
-        } else {
-            Status = "REJECTED";
-            errorcode = Constants.ISO_ERROR_REPEATED; //7 is the error code if the message is rejected as it was send before the sign-on message
+//        if (!Utility.isRejected) {
+//            Status = "ACCEPTED";
+//        } else {
+//            Status = "REJECTED";
+//            errorcode = Constants.ISO_ERROR_REPEATED; 
+//        }
+
+        if(Utility.isRepeated){
+            Status="REJECTED";
+            errorcode=Constants.ISO_ERROR_REPEATED;
         }
+            
         String sql = "INSERT INTO elements(`ErrorCode`,`MTI`," + column + ",`Status`,`LoggingTime`) VALUES (" + errorcode + "," + MTI + "," + Value + "," + '"' + Status + '"' + " ," + CurrDate + ")";
         stmt.executeUpdate(sql);
         con.close();
+        Utility.MsgStatus=false;
+        Utility.ReversedStatus=null;
+        Utility.isRepeated=false;
+        Utility.loggerString="";
+        errorcode=Constants.ISO_ERROR_CODE_SUCCESS;
     }
 
     //Omar Saad & Youssef Shafee & Mostafa Mohamed & Islam tareq // 2 -8-2018  
@@ -109,15 +120,44 @@ public class MessageDatabase {
 
         }
     }
-
-    public boolean getMessage(String field7, String field11) throws ClassNotFoundException, SQLException {
+    
+    //Islam Tareq
+//    public boolean getMessage(String field7, String field11) throws ClassNotFoundException, SQLException {
+//        Class.forName("com.mysql.jdbc.Driver");
+//        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "");
+//        Statement stmt = con.createStatement();
+//        String sql = "SELECT Field7, Field11 FROM elements WHERE Field7=" + '"' + field7 + '"' + "AND Field11 = " + '"' + field11 + '"';
+//        boolean flag = stmt.executeQuery(sql).next() == true;
+//        ResultSet rs = stmt.executeQuery(sql);
+//        if(rs.next())
+//            return true;
+//        con.close();
+//        return false;
+//
+//    
+    
+    public static boolean IsRepeated( String DE7, String DE11) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "");
         Statement stmt = con.createStatement();
-        String sql = "SELECT Field7, Field11 FROM elements WHERE Field7=" + "'" + field7 + "'" + "AND Field11 = " + "'" + field11 + "'";
-        boolean flag = stmt.executeQuery(sql).next() == true;
-        con.close();
-        return flag;
+        ResultSet rs = stmt.executeQuery("SELECT `Field12` FROM `elements` WHERE  "+"`Field7`=" + '"' + DE7 + '"' + " AND `Field11`=" + '"' + DE11 + '"');
+        
+//        while (rs.next()) {
+//            String f = rs.getString(3);
+//            f = f.charAt(0) + "" + f.charAt(1);
+//
+//           
+//
+//            //System.out.println(Status);
+//            //String name= rs.getString(2);
+//        }
 
+        if (rs.next()) {
+            return true;
+        } else {
+            return false;
+
+        }
     }
+    
 }
