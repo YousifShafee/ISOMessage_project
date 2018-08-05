@@ -64,7 +64,7 @@ public class MultiThreadServer implements Runnable {
                     //___________________Response_________________________________
                    
 
-                    mDataOutputStream.writeUTF(m.response().getMsg());
+                    mDataOutputStream.writeUTF(m.response());
 
                 } catch (WrongMessageException ex) {
                     Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);

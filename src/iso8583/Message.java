@@ -233,11 +233,12 @@ public class Message extends MessageParser {
         return output + "";
     }
 
-    public Message response() throws SQLException, ClassNotFoundException, WrongMessageException {
+     public String response() throws SQLException, ClassNotFoundException, WrongMessageException {
         String AsciMTI = HexToAsci(MTI);
-
+        ArrayList<String> responsee=new ArrayList<>();
+       
         String ResponseMTI = "";
-
+        
         switch (AsciMTI) {
             case "1804":
                 ResponseMTI = "31383134";
@@ -259,14 +260,21 @@ public class Message extends MessageParser {
             default:
                 throw new WrongMTIException("Wrong MTI", MTI);
         }
-
-        Message response = new Message(MsgLength + ISO + PowerCardHeader + ResponseMTI + BitMap + DataElements);
+        
+       // Message response = new Message(MsgLength + ISO + PowerCardHeader + ResponseMTI + BitMap + DataElements);
         ArrayList<FieldInfo> res = null;
         res = parsingMessage(DataElements, BitMap, MTI);
         FieldType gettype;
+        String result="";
+        result+=HexToAsci(MsgLength);
+         result+="@"+HexToAsci(ISO);
+        result+="@"+HexToAsci(PowerCardHeader);
+        result+="@"+HexToAsci(ResponseMTI);
+        
         for (int i = 0; i < res.size(); i++) {
             gettype = MessageParser.getElementLength(res.get(i).getFieldNo());
-
+            String num=res.get(i).getFieldNo()+"";
+             result+="@"+num+"/"+HexToAsci(res.get(i).getDE());
             // Logging for BitMap Bin
             if (gettype.getIsVar()) {
                 Utility.loggerString = String.format(" Fld(%3d)%s[%3d]     : %s = %s", res.get(i).getFieldNo(), "V", gettype.getLength(), res.get(i).getInfo(), HexToAsci(res.get(i).getDE()));
@@ -278,7 +286,7 @@ public class Message extends MessageParser {
         }
         // End Logging 
         Utility.logger.info("=====================End Parsing=====================");
-        return response;
+        return result;
     }
 
     //Youussef Shafee & Omar Saad //1-8-2018 
