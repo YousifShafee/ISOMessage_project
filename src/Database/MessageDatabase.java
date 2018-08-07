@@ -30,7 +30,7 @@ public class MessageDatabase {
     public void insertInDb(ArrayList<FieldInfo> DataInfo, String MTI) throws SQLException, ClassNotFoundException {
 
         Class.forName("com.mysql.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "Hero12king1234");
         Statement stmt = con.createStatement();
 
         String column = "`Field" + DataInfo.get(0).getFieldNo() + "` ";
@@ -86,7 +86,7 @@ public class MessageDatabase {
     //Omar Saad & Youssef Shafee & Mostafa Mohamed & Islam tareq // 2 -8-2018  
     public static Reversing SearchReversal(String MTI, String DE7, String DE11, String DE12) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "Hero12king1234");
         Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT `Status`,`id`,`Field12` FROM `elements` WHERE `MTI`=" + '"' + MTI + '"' + " AND `Field7`=" + '"' + DE7 + '"' + " AND `Field11`=" + '"' + DE11 + '"');//" AND `Field12`="+'"'+DE12+'"'//" AND `Field12`="+'"'+DE12+'"'
         String Status = "";
@@ -122,7 +122,7 @@ public class MessageDatabase {
     //By :Omar Saad & Mostafa Mohamed // 5/8/2018
     public static boolean IsRepeated( String DE7, String DE11) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "Hero12king1234");
         Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT `Field12` FROM `elements` WHERE  "+"`Field7`=" + '"' + DE7 + '"' + " AND `Field11`=" + '"' + DE11 + '"');
         

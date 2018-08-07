@@ -194,12 +194,15 @@ public class Message extends MessageParser {
             }
 
         } catch (SQLException ex) {
+            Utility.logError(ex);
             ex.printStackTrace();
             Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
+            Utility.logError(ex);
             Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
         } catch (ZeroBitmapException ex) {
+            Utility.logError(ex);
             Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
         }
         FieldType gettype;
@@ -295,6 +298,7 @@ public class Message extends MessageParser {
         try {
             DE = parsingMessage(DataElements, BitMap, MTI);
         } catch (ZeroBitmapException ex) {
+            Utility.logError(ex);
             ex.printStackTrace();
             Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -338,8 +342,10 @@ public class Message extends MessageParser {
             }
 
         } catch (SQLException ex) {
+            Utility.logError(ex);
             Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
+            Utility.logError(ex);
             Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

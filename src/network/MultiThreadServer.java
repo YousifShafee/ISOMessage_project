@@ -50,6 +50,7 @@ public class MultiThreadServer implements Runnable {
                     m = new Message(Msg);
                     validMsg = true;
                 } catch (WrongMessageException ex) {
+                    Utility.logError(ex);
                     Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 System.out.println("client :" + Msg);
@@ -67,6 +68,7 @@ public class MultiThreadServer implements Runnable {
                     mDataOutputStream.writeUTF(m.response());
 
                 } catch (WrongMessageException ex) {
+                    Utility.logError(ex);
                     Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 if (Msg.equalsIgnoreCase("exit")) {
@@ -74,16 +76,20 @@ public class MultiThreadServer implements Runnable {
                 }
             }
         } catch (IOException ex) {
+            Utility.logError(ex);
             Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
+            Utility.logError(ex);
             Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
+            Utility.logError(ex);
             Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         try {
             csocket.close();
         } catch (IOException ex) {
+            Utility.logError(ex);
             Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
         }
 

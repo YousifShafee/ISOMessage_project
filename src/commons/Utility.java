@@ -11,7 +11,13 @@ public class Utility {
 
 // Static String which have logger Message By Yousif
     public static String loggerString;
+    public static String loggerEnd = "=====================End Parsing=====================";
     public static boolean MsgStatus = false; // Flag to indicate Sign-on message Recieved or not. //Omar Saad & Islam Tarek // 1/8/2018 
     public static ErrorCode ReversedStatus;
     public static boolean isRepeated = false;
+    
+    public static void logError(Exception ex){
+        Utility.logger.error(ex);
+        Utility.logger.error(Utility.loggerEnd);
+    }
 }
