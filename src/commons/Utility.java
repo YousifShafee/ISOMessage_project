@@ -20,4 +20,37 @@ public class Utility {
         Utility.logger.error(ex);
         Utility.logger.error(Utility.loggerEnd);
     }
+    
+     //Change from hex to Binary
+    //Omar Saad // 29/7/2018
+     public static String hexToBin(String hex) {
+        String bin = "";
+        String binFragment = "";
+        int iHex;
+        hex = hex.trim();
+        hex = hex.replaceFirst("0x", "");
+
+        for (int i = 0; i < hex.length(); i++) {
+            iHex = Integer.parseInt("" + hex.charAt(i), 16);
+            binFragment = Integer.toBinaryString(iHex);
+
+            while (binFragment.length() < 4) {
+                binFragment = "0" + binFragment;
+            }
+            bin += binFragment;
+        }
+        return bin;
+    }
+     
+      public static String HexToAsci(String hex) {
+
+        StringBuilder output = new StringBuilder();
+        for (int i = 0; i < hex.length(); i += 2) {
+            String str = hex.substring(i, i + 2);
+            output.append((char) Integer.parseInt(str, 16));
+        }
+        return output + "";
+    }
+      
+      
 }

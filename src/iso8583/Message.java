@@ -2,7 +2,6 @@ package iso8583;
 
 //Omar Saad (29/7/2018)
 import commons.Utility;
-import static Database.MessageDatabase.HexToAsci;
 import exceptions.NotHexadecimalFormatException;
 import exceptions.WrongMTIException;
 import exceptions.WrongMessageException;
@@ -14,7 +13,7 @@ import java.util.logging.Logger;
 import Database.MessageDatabase;
 import commons.Constants;
 
-public class Message extends MessageParser {
+public class Message {
 
     private String Msg; // The complete message 
     private String MsgLength = ""; //Message Length 
@@ -52,7 +51,7 @@ public class Message extends MessageParser {
         }
 
         // Logging ISO Length by Yousif
-        Utility.loggerString = String.format("ISO Msg Length : %s", HexToAsci(MsgLength));
+        Utility.loggerString = String.format("ISO Msg Length : %s", Utility.HexToAsci(MsgLength));
         Utility.logger.info(Utility.loggerString);
 
         //get ISO in hex and put it in String ISO
@@ -62,7 +61,7 @@ public class Message extends MessageParser {
         }
 
         // Logging for Protocol ID "ISO"
-        Utility.loggerString = String.format("Protocol ID : %s", HexToAsci(ISO));
+        Utility.loggerString = String.format("Protocol ID : %s", Utility.HexToAsci(ISO));
         Utility.logger.info(Utility.loggerString);
 
         //get Power Card Header in hex and put it in String PowerCardHeader
@@ -72,7 +71,7 @@ public class Message extends MessageParser {
         }
 
         // Logging for Power Card Header"
-        Utility.loggerString = String.format("Power Card Header : %s", HexToAsci(PowerCardHeader));
+        Utility.loggerString = String.format("Power Card Header : %s", Utility.HexToAsci(PowerCardHeader));
         Utility.logger.info(Utility.loggerString);
 
         //get MTI in hex and put it in String MTI
@@ -82,7 +81,7 @@ public class Message extends MessageParser {
         }
 
         // Logging for MTI
-        Utility.loggerString = String.format("MTI : %s", HexToAsci(MTI));
+        Utility.loggerString = String.format("MTI : %s", Utility.HexToAsci(MTI));
         Utility.logger.info(Utility.loggerString);
 
         //get Bit Map in hex and put it in String BitMap
@@ -115,7 +114,7 @@ public class Message extends MessageParser {
         // Logging for BitMap Hexa
         Utility.loggerString = String.format("BITMAP Bytes : %s", BitMap);
         Utility.logger.info(Utility.loggerString);
-        String bin = hexToBin(BitMap);
+        String bin = Utility.hexToBin(BitMap);
 
         // Logging for BitMap Bin
         Utility.loggerString = String.format("BITMAP bits  : %s", bin);
@@ -126,7 +125,7 @@ public class Message extends MessageParser {
             DataElements = DataElements + Msg.charAt(i);
             i++;
         }
-        if (HexToAsci(MTI).equals("1420") || HexToAsci(MTI).equals("1421")) {
+        if (Utility.HexToAsci(MTI).equals("1420") || Utility.HexToAsci(MTI).equals("1421")) {
             Reversing(DataElements, BitMap, MTI);
         }
         //Check Repeated
@@ -135,9 +134,9 @@ public class Message extends MessageParser {
         String de11="";
         for(int q=0;q<f.size();q++){
             if(f.get(q).getFieldNo()==7)
-               de7=HexToAsci( f.get(q).getDE());
+               de7=Utility.HexToAsci( f.get(q).getDE());
             if(f.get(q).getFieldNo()==11)
-               de11=HexToAsci( f.get(q).getDE());
+               de11=Utility.HexToAsci( f.get(q).getDE());
         }
         Utility.isRepeated=MessageDatabase.IsRepeated(de7, de11);
     }
@@ -149,19 +148,19 @@ public class Message extends MessageParser {
 
     public String getMsgLength() {
 
-        return HexToAsci(MsgLength);
+        return Utility.HexToAsci(MsgLength);
     }
 
     public String getISO() {
-        return HexToAsci(ISO);
+        return Utility.HexToAsci(ISO);
     }
 
     public String getPowerCardHeader() {
-        return HexToAsci(PowerCardHeader);
+        return Utility.HexToAsci(PowerCardHeader);
     }
 
     public String getMTI() {
-        return HexToAsci(MTI);
+        return Utility.HexToAsci(MTI);
     }
 
     public String getBitMap() {
@@ -175,21 +174,21 @@ public class Message extends MessageParser {
 
     //tostring method
     public String toString() {
-        String x = "Message Length:(hex) " + MsgLength + " >>> (Asci)" + HexToAsci(MsgLength);
-        x = x + '\n' + "ISO:(hex) " + ISO + " >>> (Asci)" + HexToAsci(ISO);
-        x = x + '\n' + "Power Card Header:(hex) " + PowerCardHeader + " >>> (Asci)" + HexToAsci(PowerCardHeader);
-        x = x + '\n' + "MTI:(hex) " + MTI + " >>> (Asci)" + HexToAsci(MTI);
+        String x = "Message Length:(hex) " + MsgLength + " >>> (Asci)" + Utility.HexToAsci(MsgLength);
+        x = x + '\n' + "ISO:(hex) " + ISO + " >>> (Asci)" + Utility.HexToAsci(ISO);
+        x = x + '\n' + "Power Card Header:(hex) " + PowerCardHeader + " >>> (Asci)" + Utility.HexToAsci(PowerCardHeader);
+        x = x + '\n' + "MTI:(hex) " + MTI + " >>> (Asci)" + Utility.HexToAsci(MTI);
         x = x + '\n' + "BitMap:(hex) " + BitMap;
         // x=x+'\n'+"Data Elements:(hex) "+DataElements ;
         ArrayList<FieldInfo> res = null;
         try {
-            res = parsingMessage(DataElements, BitMap, MTI);
+            res = MessageParser.parsingMessage(DataElements, BitMap, MTI);
 
-            if (!HexToAsci(MTI).equals("1804")) {
-                AddToDB(DataElements, BitMap, MTI);
+            if (!Utility.HexToAsci(MTI).equals("1804")) {
+                MessageParser.AddToDB(DataElements, BitMap, MTI);
             }
 
-            if (HexToAsci(MTI).equals("1804")) {
+            if (Utility.HexToAsci(MTI).equals("1804")) {
                 Utility.MsgStatus = true;
             }
 
@@ -225,19 +224,10 @@ public class Message extends MessageParser {
 
     }
 
-    //Method that changes from hex to asci 
-    public static String HexToAsci(String hex) {
-
-        StringBuilder output = new StringBuilder();
-        for (int i = 0; i < hex.length(); i += 2) {
-            String str = hex.substring(i, i + 2);
-            output.append((char) Integer.parseInt(str, 16));
-        }
-        return output + "";
-    }
+    
 
      public String response() throws SQLException, ClassNotFoundException, WrongMessageException {
-        String AsciMTI = HexToAsci(MTI);
+        String AsciMTI = Utility.HexToAsci(MTI);
         ArrayList<String> responsee=new ArrayList<>();
        
         String ResponseMTI = "";
@@ -266,24 +256,24 @@ public class Message extends MessageParser {
         
        // Message response = new Message(MsgLength + ISO + PowerCardHeader + ResponseMTI + BitMap + DataElements);
         ArrayList<FieldInfo> res = null;
-        res = parsingMessage(DataElements, BitMap, MTI);
+        res = MessageParser.parsingMessage(DataElements, BitMap, MTI);
         FieldType gettype;
         String result="";
-        result+=HexToAsci(MsgLength);
-         result+="@"+HexToAsci(ISO);
-        result+="@"+HexToAsci(PowerCardHeader);
-        result+="@"+HexToAsci(ResponseMTI);
+        result+=Utility.HexToAsci(MsgLength);
+         result+="@"+Utility.HexToAsci(ISO);
+        result+="@"+Utility.HexToAsci(PowerCardHeader);
+        result+="@"+Utility.HexToAsci(ResponseMTI);
         
         for (int i = 0; i < res.size(); i++) {
             gettype = MessageParser.getElementLength(res.get(i).getFieldNo());
             String num=res.get(i).getFieldNo()+"";
-             result+="@"+num+"/"+HexToAsci(res.get(i).getDE());
+             result+="@"+num+"/"+Utility.HexToAsci(res.get(i).getDE());
             // Logging for BitMap Bin
             if (gettype.getIsVar()) {
-                Utility.loggerString = String.format(" Fld(%3d)%s[%3d]     : %s = %s", res.get(i).getFieldNo(), "V", gettype.getLength(), res.get(i).getInfo(), HexToAsci(res.get(i).getDE()));
+                Utility.loggerString = String.format(" Fld(%3d)%s[%3d]     : %s = %s", res.get(i).getFieldNo(), "V", gettype.getLength(), res.get(i).getInfo(), Utility.HexToAsci(res.get(i).getDE()));
                 Utility.logger.info(Utility.loggerString);
             } else {
-                Utility.loggerString = String.format(" Fld(%3d)%s[%3d]     : %s = %s", res.get(i).getFieldNo(), "F", gettype.getLength(), res.get(i).getInfo(), HexToAsci(res.get(i).getDE()));
+                Utility.loggerString = String.format(" Fld(%3d)%s[%3d]     : %s = %s", res.get(i).getFieldNo(), "F", gettype.getLength(), res.get(i).getInfo(), Utility.HexToAsci(res.get(i).getDE()));
                 Utility.logger.info(Utility.loggerString);
             }
         }
@@ -296,7 +286,7 @@ public class Message extends MessageParser {
     public void Reversing(String DataElements, String BitMap, String MTI) throws ClassNotFoundException, SQLException {
         ArrayList<FieldInfo> DE = null;
         try {
-            DE = parsingMessage(DataElements, BitMap, MTI);
+            DE = MessageParser.parsingMessage(DataElements, BitMap, MTI);
         } catch (ZeroBitmapException ex) {
             Utility.logError(ex);
             ex.printStackTrace();
@@ -305,7 +295,7 @@ public class Message extends MessageParser {
         String Field56 = "";
         for (int k = 0; k < DE.size(); k++) {
             if (DE.get(k).getFieldNo() == 56) {
-                Field56 = HexToAsci(DE.get(k).getDE());
+                Field56 = Utility.HexToAsci(DE.get(k).getDE());
             }
         }
         int c = 0;//counter

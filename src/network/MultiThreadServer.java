@@ -48,6 +48,7 @@ public class MultiThreadServer implements Runnable {
                 Msg = mDataInputStream.readUTF();
                 try {
                     m = new Message(Msg);
+                          
                     validMsg = true;
                 } catch (WrongMessageException ex) {
                     Utility.logError(ex);

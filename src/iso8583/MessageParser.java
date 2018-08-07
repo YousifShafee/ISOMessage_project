@@ -5,39 +5,18 @@ import commons.Utility;
 import exceptions.ZeroBitmapException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class MessageParser {
 
     private static Database.MessageDatabase messageDatabase = new MessageDatabase();
 
-    //Change from hex to Binary
-    //Omar Saad // 29/7/2018
-    public static String hexToBin(String hex) {
-        String bin = "";
-        String binFragment = "";
-        int iHex;
-        hex = hex.trim();
-        hex = hex.replaceFirst("0x", "");
-
-        for (int i = 0; i < hex.length(); i++) {
-            iHex = Integer.parseInt("" + hex.charAt(i), 16);
-            binFragment = Integer.toBinaryString(iHex);
-
-            while (binFragment.length() < 4) {
-                binFragment = "0" + binFragment;
-            }
-            bin += binFragment;
-        }
-        return bin;
-    }
-
+   
     //this method get all the 1's indexs of bitmap in binary . 
     //Omar Saad 29/7/2018    
     public static ArrayList<Integer> getExistingElementNo(String bitMap) throws ZeroBitmapException {
         ArrayList<Integer> res = new ArrayList();
         int counter = 0;
-        String bin = hexToBin(bitMap);
+        String bin = Utility.hexToBin(bitMap);
 
         for (int i = 0; i < bin.length(); i++) {
             if (bin.charAt(i) == '1') {
@@ -223,13 +202,9 @@ public class MessageParser {
                 } else if (lengthIndecator.getIsVar()) {
 
                     String hex = restOfMsg.substring(0, lengthIndecator.getLength() * 2);
-                    StringBuilder output = new StringBuilder();
-                    for (int j = 0; j < hex.length(); j += 2) {
-                        String str = hex.substring(j, j + 2);
-                        output.append((char) Integer.parseInt(str, 16));
-                    }
+                    String output = Utility.HexToAsci(hex);
                     
-                    lengthDigits = Integer.parseInt(output.toString());
+                    lengthDigits = Integer.parseInt(output);
 
                     restOfMsg = restOfMsg.substring(lengthIndecator.getLength() * 2);
                     dataElement = restOfMsg.substring(0, lengthDigits * 2);
@@ -247,7 +222,7 @@ public class MessageParser {
     //Omar Saad // 1-8-2018
     public static void AddToDB(String restOfMsg, String BitMap, String MTI) throws SQLException, ClassNotFoundException, ZeroBitmapException {
         MessageDatabase DB = new MessageDatabase();
-        DB.insertInDb(parsingMessage(restOfMsg, BitMap, MTI), Message.HexToAsci(MTI));
+        DB.insertInDb(parsingMessage(restOfMsg, BitMap, MTI), Utility.HexToAsci(MTI));
     }
 
 }
