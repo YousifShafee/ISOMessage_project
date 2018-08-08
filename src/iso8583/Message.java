@@ -24,7 +24,8 @@ public class Message {
     private String DataElements = "";
 
     public Message(String Msg) throws WrongMessageException, ClassNotFoundException, SQLException {
-
+       
+        
         //remove spaces from String
         Msg = Msg.replaceAll(" ", "");
 
@@ -228,7 +229,7 @@ public class Message {
 
      public String response() throws SQLException, ClassNotFoundException, WrongMessageException {
         String AsciMTI = Utility.HexToAsci(MTI);
-        ArrayList<String> responsee=new ArrayList<>();
+        //ArrayList<String> responsee=new ArrayList<>();
        
         String ResponseMTI = "";
         

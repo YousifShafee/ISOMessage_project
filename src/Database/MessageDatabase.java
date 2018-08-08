@@ -47,14 +47,9 @@ public class MessageDatabase {
 
         // To check whether sign-on message has been recieved or not so that the message is accepted or rejected
         // Omar Saad & Islam Tarek // 1-8-2018
-        String Status = "";
+        String Status = "ACCEPTED";
         int errorcode = Constants.ISO_ERROR_CODE_SUCCESS; // 0 if no error occured and message was accepted 
-        if (Utility.MsgStatus) {
-            Status = "ACCEPTED";
-        } else {
-            Status = "REJECTED";
-            errorcode = Constants.ISO_ERROR_CODE_SIGN_ON_NOT_RECEIVED; //7 is the error code if the message is rejected as it was send before the sign-on message
-        }
+        
         if (Utility.ReversedStatus != null) {
             if (Utility.ReversedStatus.getStatus() == Reversing.ACCEPTED) {
                 Status = "ACCEPTED";
@@ -72,7 +67,10 @@ public class MessageDatabase {
             Status="REJECTED";
             errorcode=Constants.ISO_ERROR_REPEATED;
         }
-            
+         if (!Utility.MsgStatus) {
+            Status = "REJECTED";
+            errorcode = Constants.ISO_ERROR_CODE_SIGN_ON_NOT_RECEIVED; //7 is the error code if the message is rejected as it was send before the sign-on message
+        }   
         String sql = "INSERT INTO elements(`ErrorCode`,`MTI`," + column + ",`Status`,`LoggingTime`) VALUES (" + errorcode + "," + MTI + "," + Value + "," + '"' + Status + '"' + " ," + CurrDate + ")";
         stmt.executeUpdate(sql);
         con.close();
