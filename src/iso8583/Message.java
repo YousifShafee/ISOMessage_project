@@ -23,12 +23,21 @@ public class Message {
     private String BitMap = "";
     private String DataElements = "";
 
-    public Message(String Msg) throws WrongMessageException, ClassNotFoundException, SQLException {
-       
-        
+    public Message() {
+        Msg = "";
+        MsgLength = ""; //Message Length 
+        ISO = "";
+        PowerCardHeader = "";
+        MTI = "";
+        BitMap = "";
+        DataElements = "";
+    }
+
+    public Message MessageSplite(String Msg) throws WrongMessageException, ClassNotFoundException, SQLException {
+
         //remove spaces from String
         Msg = Msg.replaceAll(" ", "");
-
+        Utility.logger.info(Utility.startLog);
         /*
          author: islam tareq
          date:   1/8/2018
@@ -42,8 +51,6 @@ public class Message {
         this.Msg = Msg;
 
         // Start Logging
-        Utility.logger.info("=====================Start Parsing=====================");
-
         //get message length in hex and put it in String MsgLength
         int i = 0;//counter
         while (i < 8) {
@@ -130,16 +137,19 @@ public class Message {
             Reversing(DataElements, BitMap, MTI);
         }
         //Check Repeated
-        ArrayList<FieldInfo> f =MessageParser.parsingMessage(DataElements, BitMap, MTI);
-        String de7="";
-        String de11="";
-        for(int q=0;q<f.size();q++){
-            if(f.get(q).getFieldNo()==7)
-               de7=Utility.HexToAsci( f.get(q).getDE());
-            if(f.get(q).getFieldNo()==11)
-               de11=Utility.HexToAsci( f.get(q).getDE());
+        ArrayList<FieldInfo> f = MessageParser.parsingMessage(DataElements, BitMap, MTI);
+        String de7 = "";
+        String de11 = "";
+        for (int q = 0; q < f.size(); q++) {
+            if (f.get(q).getFieldNo() == 7) {
+                de7 = Utility.HexToAsci(f.get(q).getDE());
+            }
+            if (f.get(q).getFieldNo() == 11) {
+                de11 = Utility.HexToAsci(f.get(q).getDE());
+            }
         }
-        Utility.isRepeated=MessageDatabase.IsRepeated(de7, de11);
+        Utility.isRepeated = MessageDatabase.IsRepeated(de7, de11);
+        return this;
     }
 
     //GETTERS
@@ -206,7 +216,8 @@ public class Message {
             Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
         }
         FieldType gettype;
-        for (int i = 0; i < res.size(); i++) {
+        int resSize = res.size();
+        for (int i = 0; i < resSize; i++) {
             gettype = MessageParser.getElementLength(res.get(i).getFieldNo());
             x = x + '\n' + "Field Number " + res.get(i).getFieldNo() + ">>>" + res.get(i).getDE() + ">>>" + res.get(i).getInfo();
 
@@ -220,19 +231,18 @@ public class Message {
             }
         }
         // End Logging
-        Utility.logger.info("=====================End Parsing=====================");
+        Utility.logger.info(Utility.endLog);
         return x;
 
     }
 
-    
-
-     public String response() throws SQLException, ClassNotFoundException, WrongMessageException {
-        String AsciMTI = Utility.HexToAsci(MTI);
+    public String response() throws SQLException, ClassNotFoundException, WrongMessageException {
+        String AsciMTI = "";
+        AsciMTI = Utility.HexToAsci(MTI);
         //ArrayList<String> responsee=new ArrayList<>();
-       
+
         String ResponseMTI = "";
-        
+        Utility.logger.info(Utility.startRes);
         switch (AsciMTI) {
             case "1804":
                 ResponseMTI = "31383134";
@@ -254,21 +264,21 @@ public class Message {
             default:
                 throw new WrongMTIException("Wrong MTI", MTI);
         }
-        
-       // Message response = new Message(MsgLength + ISO + PowerCardHeader + ResponseMTI + BitMap + DataElements);
+
+        // Message response = new Message(MsgLength + ISO + PowerCardHeader + ResponseMTI + BitMap + DataElements);
         ArrayList<FieldInfo> res = null;
         res = MessageParser.parsingMessage(DataElements, BitMap, MTI);
         FieldType gettype;
-        String result="";
-        result+=Utility.HexToAsci(MsgLength);
-         result+="@"+Utility.HexToAsci(ISO);
-        result+="@"+Utility.HexToAsci(PowerCardHeader);
-        result+="@"+Utility.HexToAsci(ResponseMTI);
-        
+        String result = "";
+        result += Utility.HexToAsci(MsgLength);
+        result += "@" + Utility.HexToAsci(ISO);
+        result += "@" + Utility.HexToAsci(PowerCardHeader);
+        result += "@" + Utility.HexToAsci(ResponseMTI);
+
         for (int i = 0; i < res.size(); i++) {
             gettype = MessageParser.getElementLength(res.get(i).getFieldNo());
-            String num=res.get(i).getFieldNo()+"";
-             result+="@"+num+"/"+Utility.HexToAsci(res.get(i).getDE());
+            String num = res.get(i).getFieldNo() + "";
+            result += "@" + num + "/" + Utility.HexToAsci(res.get(i).getDE());
             // Logging for BitMap Bin
             if (gettype.getIsVar()) {
                 Utility.loggerString = String.format(" Fld(%3d)%s[%3d]     : %s = %s", res.get(i).getFieldNo(), "V", gettype.getLength(), res.get(i).getInfo(), Utility.HexToAsci(res.get(i).getDE()));
@@ -279,7 +289,7 @@ public class Message {
             }
         }
         // End Logging 
-        Utility.logger.info("=====================End Parsing=====================");
+        Utility.logger.info(Utility.endRes);
         return result;
     }
 

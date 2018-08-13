@@ -10,13 +10,13 @@ public class MessageParser {
 
     private static Database.MessageDatabase messageDatabase = new MessageDatabase();
 
-   
     //this method get all the 1's indexs of bitmap in binary . 
     //Omar Saad 29/7/2018    
     public static ArrayList<Integer> getExistingElementNo(String bitMap) throws ZeroBitmapException {
         ArrayList<Integer> res = new ArrayList();
         int counter = 0;
-        String bin = Utility.hexToBin(bitMap);
+        String bin = "";
+        bin = Utility.hexToBin(bitMap);
 
         for (int i = 0; i < bin.length(); i++) {
             if (bin.charAt(i) == '1') {
@@ -183,13 +183,14 @@ public class MessageParser {
     //Omar Review:- this method can take only 1  parameter(Message Msg) and use the getter methods to get any variable
     //              instead of (String restOfMsg,String BitMap,String MTI) 
     public static ArrayList<FieldInfo> parsingMessage(String restOfMsg, String BitMap, String MTI) throws ZeroBitmapException, ClassNotFoundException, SQLException {
-       
+
         ArrayList<FieldInfo> dataElements = new ArrayList<>();
-        int dataElementNo, lengthDigits;
+        int dataElementNo = 0, lengthDigits = 0, elementNoSize = 0;
         String dataElement = null;
         ArrayList<Integer> elementNo = getExistingElementNo(BitMap);
         FieldType lengthIndecator;
-        for (int i = 0; i < elementNo.size(); ++i) {
+        elementNoSize = elementNo.size();
+        for (int i = 0; i < elementNoSize; ++i) {
             if (elementNo.get(i) != 1) {
                 dataElementNo = elementNo.get(i);
                 lengthIndecator = getElementLength(dataElementNo);
@@ -203,7 +204,7 @@ public class MessageParser {
 
                     String hex = restOfMsg.substring(0, lengthIndecator.getLength() * 2);
                     String output = Utility.HexToAsci(hex);
-                    
+
                     lengthDigits = Integer.parseInt(output);
 
                     restOfMsg = restOfMsg.substring(lengthIndecator.getLength() * 2);

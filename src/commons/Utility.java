@@ -11,19 +11,24 @@ public class Utility {
 
 // Static String which have logger Message By Yousif
     public static String loggerString;
-    public static String loggerEnd = "=====================End Parsing=====================";
+    public static String startLog = "=====================Start Parsing======================";
+    public static String endLog = "===================== End Parsing ======================";
+    public static String startRes = "=====================Start Response=====================";
+    public static String endRes = "===================== End Response =====================";
+    public static String errorLog = "===================== Error Log ========================";
     public static boolean MsgStatus = false; // Flag to indicate Sign-on message Recieved or not. //Omar Saad & Islam Tarek // 1/8/2018 
     public static ErrorCode ReversedStatus;
     public static boolean isRepeated = false;
-    
-    public static void logError(Exception ex){
+
+    public static void logError(Exception ex) {
+        Utility.logger.error(Utility.errorLog);
         Utility.logger.error(ex);
-        Utility.logger.error(Utility.loggerEnd);
+        Utility.logger.error(Utility.endLog);
     }
-    
-     //Change from hex to Binary
+
+    //Change from hex to Binary
     //Omar Saad // 29/7/2018
-     public static String hexToBin(String hex) {
+    public static String hexToBin(String hex) {
         String bin = "";
         String binFragment = "";
         int iHex;
@@ -41,8 +46,8 @@ public class Utility {
         }
         return bin;
     }
-     
-      public static String HexToAsci(String hex) {
+
+    public static String HexToAsci(String hex) {
 
         StringBuilder output = new StringBuilder();
         for (int i = 0; i < hex.length(); i += 2) {
@@ -51,6 +56,5 @@ public class Utility {
         }
         return output + "";
     }
-      
-      
+
 }

@@ -30,7 +30,7 @@ public class MessageDatabase {
     public void insertInDb(ArrayList<FieldInfo> DataInfo, String MTI) throws SQLException, ClassNotFoundException {
 
         Class.forName("com.mysql.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root","");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "Hero12king1234");
         Statement stmt = con.createStatement();
 
         String column = "`Field" + DataInfo.get(0).getFieldNo() + "` ";
@@ -49,7 +49,7 @@ public class MessageDatabase {
         // Omar Saad & Islam Tarek // 1-8-2018
         String Status = "ACCEPTED";
         int errorcode = Constants.ISO_ERROR_CODE_SUCCESS; // 0 if no error occured and message was accepted 
-        
+
         if (Utility.ReversedStatus != null) {
             if (Utility.ReversedStatus.getStatus() == Reversing.ACCEPTED) {
                 Status = "ACCEPTED";
@@ -62,29 +62,28 @@ public class MessageDatabase {
             }
         }
 
-
-        if(Utility.isRepeated){
-            Status="REJECTED";
-            errorcode=Constants.ISO_ERROR_REPEATED;
+        if (Utility.isRepeated) {
+            Status = "REJECTED";
+            errorcode = Constants.ISO_ERROR_REPEATED;
         }
-         if (!Utility.MsgStatus) {
+        if (!Utility.MsgStatus) {
             Status = "REJECTED";
             errorcode = Constants.ISO_ERROR_CODE_SIGN_ON_NOT_RECEIVED; //7 is the error code if the message is rejected as it was send before the sign-on message
-        }   
+        }
         String sql = "INSERT INTO elements(`ErrorCode`,`MTI`," + column + ",`Status`,`LoggingTime`) VALUES (" + errorcode + "," + MTI + "," + Value + "," + '"' + Status + '"' + " ," + CurrDate + ")";
         stmt.executeUpdate(sql);
         con.close();
         //Utility.MsgStatus=false;
-        Utility.ReversedStatus=null;
-        Utility.isRepeated=false;
-        Utility.loggerString="";
+        Utility.ReversedStatus = null;
+        Utility.isRepeated = false;
+        Utility.loggerString = "";
         //errorcode=Constants.ISO_ERROR_CODE_SUCCESS;
     }
 
     //Omar Saad & Youssef Shafee & Mostafa Mohamed & Islam tareq // 2 -8-2018  
     public static Reversing SearchReversal(String MTI, String DE7, String DE11, String DE12) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root","");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "Hero12king1234");
         Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT `Status`,`id`,`Field12` FROM `elements` WHERE `MTI`=" + '"' + MTI + '"' + " AND `Field7`=" + '"' + DE7 + '"' + " AND `Field11`=" + '"' + DE11 + '"');//" AND `Field12`="+'"'+DE12+'"'//" AND `Field12`="+'"'+DE12+'"'
         String Status = "";
@@ -98,8 +97,9 @@ public class MessageDatabase {
                 Status = rs.getString(1);
                 //System.out.println(Status+'\n'+id+'\n');
             }
-            if (Status.equals("ACCEPTED"))
+            if (Status.equals("ACCEPTED")) {
                 break;
+            }
 
             //System.out.println(Status);
             //String name= rs.getString(2);
@@ -115,16 +115,13 @@ public class MessageDatabase {
 
         }
     }
-    
-  
-    //By :Omar Saad & Mostafa Mohamed // 5/8/2018
-    public static boolean IsRepeated( String DE7, String DE11) throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "");
-        Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT `Field12` FROM `elements` WHERE  "+"`Field7`=" + '"' + DE7 + '"' + " AND `Field11`=" + '"' + DE11 + '"');
-        
 
+    //By :Omar Saad & Mostafa Mohamed // 5/8/2018
+    public static boolean IsRepeated(String DE7, String DE11) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "Hero12king1234");
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT `Field12` FROM `elements` WHERE  " + "`Field7`=" + '"' + DE7 + '"' + " AND `Field11`=" + '"' + DE11 + '"');
 
         if (rs.next()) {
             return true;
@@ -133,5 +130,5 @@ public class MessageDatabase {
 
         }
     }
-    
+
 }

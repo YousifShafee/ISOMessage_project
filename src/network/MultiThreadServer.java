@@ -44,33 +44,33 @@ public class MultiThreadServer implements Runnable {
 //____________________Get message______________________
                 String Msg = "";
                 Message m = null;
-                
+
                 Msg = mDataInputStream.readUTF();
                 try {
-                    m = new Message(Msg);
-                          
+                    m = new Message();
+                    m = m.MessageSplite(Msg);
                     validMsg = true;
+                    System.out.println("client :" + Msg);
+                    System.out.println(m);
                 } catch (WrongMessageException ex) {
                     Utility.logError(ex);
                     Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println("This is Invalid Message.");
                 }
-                System.out.println("client :" + Msg);
-                System.out.println(m);
-                
-                if(!validMsg){
-                    mDataInputStream.reset();
-                    continue;
-                }
-                
+
                 try {
                     //___________________Response_________________________________
-                   
 
                     mDataOutputStream.writeUTF(m.response());
 
                 } catch (WrongMessageException ex) {
                     Utility.logError(ex);
+                    mDataOutputStream.writeUTF("Input Message Not Valid.");
                     Logger.getLogger(MultiThreadServer.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if (!validMsg) {
+                    mDataInputStream.markSupported();
+                    continue;
                 }
                 if (Msg.equalsIgnoreCase("exit")) {
                     break;
